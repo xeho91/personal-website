@@ -3,6 +3,7 @@
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "vtrois.gitmoji-vscode",
-    "joshbolduc.commitlint"
+    "joshbolduc.commitlint",
+    "dbaeumer.vscode-eslint"
   ]
 }

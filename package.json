@@ -19,12 +19,20 @@
   "scripts": {
     "check": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --check",
     "fix": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --write",
+    "fix:js": "pnpm lint:js --- --fix \"./**/*.js\" && pnpm fix \"./**/*.js\"",
     "lint:commits": "commitlint --config \"./config/.commitlintrc.js\" --from \"develop\" --to \"HEAD\"",
+    "lint:js": "eslint --config \"./config/.eslintrc.js\" --ignore-path \"./config/.eslintignore\" --ext \".js\"",
     "postinstall": "husky install \"config/.husky\""
   },
   "devDependencies": {
     "commitlint": "^11.0.0",
     "commitlint-config-gitmoji": "^2.2.1",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-security": "^1.4.0",
     "husky": "^5.1.1",
     "prettier": "^2.2.1"
   }

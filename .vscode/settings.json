@@ -7,4 +7,9 @@
   "commitlint.config.file": "./config/.commitlintrc.js",
   // Gitmoji
   "gitmoji.outputType": "code",
+  // ESLint
+  "eslint.options": {
+    "configFile": "./config/.eslintrc.js",
+    "ignorePath": "./config/.eslintignore"
+  }
 }
