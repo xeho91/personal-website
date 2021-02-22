@@ -18,9 +18,12 @@
   },
   "scripts": {
     "check": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --check",
-    "fix": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --write"
+    "fix": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --write",
+    "lint:commits": "commitlint --config \"./config/.commitlintrc.js\" --from \"develop\" --to \"HEAD\""
   },
   "devDependencies": {
+    "commitlint": "^11.0.0",
+    "commitlint-config-gitmoji": "^2.2.1",
     "prettier": "^2.2.1"
   }
 }

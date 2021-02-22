@@ -5,6 +5,14 @@
 
 [LicenseShield]: https://img.shields.io/github/license/xeho91/personal-website
 
+[![Conventional Commits shield][ConventionalCommitsShield]][ConventionalCommitsURL]
+[![Gitmoji shield][GitmojiShield]][GitmojiURL]
+
+[GitmojiShield]: https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square
+[GitmojiURL]: https://gitmoji.dev
+[ConventionalCommitsShield]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
+[ConventionalCommitsURL]: https://conventionalcommits.org
+
 ---
 
 ## License
