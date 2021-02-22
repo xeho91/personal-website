@@ -15,5 +15,12 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xeho91/personal-wesbite.git"
+  },
+  "scripts": {
+    "check": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --check",
+    "fix": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --write"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }
