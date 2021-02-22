@@ -1,0 +1,19 @@
+{
+  "name": "personal-website",
+  "version": "0.1.0",
+  "description": "xeho91's personal website project.",
+  "keywords": [
+    "personal",
+    "website"
+  ],
+  "homepage": "https://xeho91.site/",
+  "bugs": {
+    "url": "https://github.com/xeho91/personal-wesbite/issues"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "xeho91 <xeho91@pm.me> (https://xeho91.site/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xeho91/personal-wesbite.git"
+  }
+}
