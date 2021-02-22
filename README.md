@@ -15,6 +15,12 @@
 
 ---
 
+## Security
+
+See instructions in [SECURITY.md](./SECURITY.md) file.
+
+---
+
 ## License
 
 Take a look at [LICENSE](./LICENSE) file.
