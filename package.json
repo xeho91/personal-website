@@ -19,11 +19,13 @@
   "scripts": {
     "check": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --check",
     "fix": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --write",
-    "lint:commits": "commitlint --config \"./config/.commitlintrc.js\" --from \"develop\" --to \"HEAD\""
+    "lint:commits": "commitlint --config \"./config/.commitlintrc.js\" --from \"develop\" --to \"HEAD\"",
+    "postinstall": "husky install \"config/.husky\""
   },
   "devDependencies": {
     "commitlint": "^11.0.0",
     "commitlint-config-gitmoji": "^2.2.1",
+    "husky": "^5.1.1",
     "prettier": "^2.2.1"
   }
 }
