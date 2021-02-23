@@ -4,6 +4,7 @@
     "esbenp.prettier-vscode",
     "vtrois.gitmoji-vscode",
     "joshbolduc.commitlint",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint"
   ]
 }

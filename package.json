@@ -19,8 +19,10 @@
   "scripts": {
     "check": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --check",
     "fix": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --write",
+    "fix:css": "pnpm lint:css --- --fix \"./**/*.css\" && pnpm fix \"./**/*.css\"",
     "fix:js": "pnpm lint:js --- --fix \"./**/*.js\" && pnpm fix \"./**/*.js\"",
     "lint:commits": "commitlint --config \"./config/.commitlintrc.js\" --from \"develop\" --to \"HEAD\"",
+    "lint:css": "stylelint --config \"./config/.stylelintrc.js\" --ignore-path \"./config/.stylelintignore\"",
     "lint:js": "eslint --config \"./config/.eslintrc.js\" --ignore-path \"./config/.eslintignore\" --ext \".js\"",
     "postinstall": "husky install \"config/.husky\""
   },
@@ -34,6 +36,12 @@
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-security": "^1.4.0",
     "husky": "^5.1.1",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "stylelint": "^13.11.0",
+    "stylelint-8-point-grid": "^1.0.0",
+    "stylelint-a11y": "^1.2.3",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-declaration-use-variable": "^1.7.2"
   }
 }

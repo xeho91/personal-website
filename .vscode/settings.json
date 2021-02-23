@@ -11,5 +11,9 @@
   "eslint.options": {
     "configFile": "./config/.eslintrc.js",
     "ignorePath": "./config/.eslintignore"
-  }
+  },
+  // Stylelint
+  "stylelint.config": {
+    "extends": "./config/.stylelintrc.js",
+  },
 }
