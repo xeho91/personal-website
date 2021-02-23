@@ -26,6 +26,7 @@
     "lint:css": "stylelint --config \"./config/.stylelintrc.js\" --ignore-path \"./config/.stylelintignore\"",
     "lint:js": "eslint --config \"./config/.eslintrc.js\" --ignore-path \"./config/.eslintignore\" --ext \".js\"",
     "lint:md": "markdownlint --config \"./config/.markdownlint.json\" --ignore-path \"./config/.markdownlintignore\"",
+    "lint:staged": "lint-staged --config \"./config/.lintstagedrc.js\" --verbose",
     "postinstall": "husky install \"config/.husky\""
   },
   "devDependencies": {
@@ -38,6 +39,7 @@
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-security": "^1.4.0",
     "husky": "^5.1.1",
+    "lint-staged": "^10.5.4",
     "markdownlint": "^0.23.1",
     "markdownlint-cli": "^0.26.0",
     "prettier": "^2.2.1",
