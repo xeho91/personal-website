@@ -17,6 +17,8 @@
     "url": "git+https://github.com/xeho91/personal-wesbite.git"
   },
   "scripts": {
+    "start": "snowpack --config \"./config/snowpack.config.js\" dev",
+    "build": "snowpack --config \"./config/snowpack.config.js\" build",
     "check": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --check",
     "fix": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --write",
     "fix:css": "pnpm lint:css --- --fix \"./**/*.css\" && pnpm fix \"./**/*.css\"",
@@ -46,6 +48,7 @@
     "markdownlint": "^0.23.1",
     "markdownlint-cli": "^0.26.0",
     "prettier": "^2.2.1",
+    "snowpack": "^3.0.12",
     "stylelint": "^13.11.0",
     "stylelint-8-point-grid": "^1.0.0",
     "stylelint-a11y": "^1.2.3",

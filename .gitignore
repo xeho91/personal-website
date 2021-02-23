@@ -114,3 +114,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Snowpack certification files for enabling HTTPS in development
+snowpack.crt
+snowpack.key
