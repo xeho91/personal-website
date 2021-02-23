@@ -1,0 +1,12 @@
+# https://github.com/igorshubovych/markdownlint-cli#ignoring-files
+
+# Ignore the build output, as the code here is minified for production-ready
+# usage
+/binary
+
+# Ignore the files documentation folder temporarily, as JSDoc is generating it
+# automatically
+/documentation
+
+# Ignore directory for Node.JS modules as the source is not ours
+/node_modules

@@ -16,4 +16,13 @@
   "stylelint.config": {
     "extends": "./config/.stylelintrc.js",
   },
+  // Markdownlint
+  "markdownlint.config": {
+    "extends": "./config/.markdownlint.json",
+    "MD013": {
+      "line_length": 80,
+      "stern": false,
+      "tables": false
+    }
+  },
 }
