@@ -17,8 +17,10 @@
 ## Technologies used
 
 - [Snowpack]
+- [Svelte]
 
 [Snowpack]: https://www.snowpack.dev/
+[Svelte]: https://svelte.dev/
 
 ---
 

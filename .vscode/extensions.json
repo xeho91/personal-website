@@ -8,6 +8,7 @@
     "stylelint.vscode-stylelint",
     "davidanson.vscode-markdownlint",
     "shd101wyy.markdown-preview-enhanced",
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    "svelte.svelte-vscode"
   ]
 }

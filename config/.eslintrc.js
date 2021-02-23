@@ -84,6 +84,15 @@ module.exports = {
 		"security",
 		// https://github.com/xjamundx/eslint-plugin-promise
 		"promise",
+		// https://github.com/sveltejs/eslint-plugin-svelte3
+		"svelte3",
+	],
+
+	overrides: [
+		{
+			files: ["*.svelte"],
+			processor: "svelte3/svelte3",
+		},
 	],
 
 	env: {

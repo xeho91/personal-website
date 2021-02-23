@@ -3,5 +3,6 @@ module.exports = {
 
 	"**/*.css": ['stylelint --config "./config/.stylelintrc.js"'],
 	"**/*.js": ['eslint --config "./config/.eslintrc.js"'],
+	"**/*.svelte": ['eslint --config "./config/.eslintrc.js"'],
 	"**/*.md": ['markdownlint --config "./config/.markdownlint.json"'],
 };

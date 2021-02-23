@@ -2,7 +2,7 @@
 module.exports = {
 	root: "../",
 
-	// extends: "",false
+	// extends: "",
 
 	exclude: ["**/node_modules/**/*"],
 
@@ -16,7 +16,10 @@ module.exports = {
 
 	alias: {},
 
-	plugins: [],
+	plugins: [
+		// https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-svelte
+		["@snowpack/plugin-svelte", { /* options */ }]
+	],
 
 	devOptions: {
 		secure: true,
@@ -29,7 +32,7 @@ module.exports = {
 		hmrDelay: 0,
 		// hmrPort: 8080,
 		hmrErrorOverlay: true,
-		out: "build",
+		out: "/build",
 	},
 
 	packageOptions: {
