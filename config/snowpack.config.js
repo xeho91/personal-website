@@ -18,7 +18,19 @@ module.exports = {
 
 	plugins: [
 		// https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-svelte
-		["@snowpack/plugin-svelte", { /* options */ }]
+		[
+			"@snowpack/plugin-svelte",
+			{
+				// configFilePath: "./config/svelte.config.js",
+			},
+		],
+		// https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-postcss#readme
+		[
+			"@snowpack/plugin-postcss",
+			{
+				config: "./config/postcss.config.js",
+			},
+		],
 	],
 
 	devOptions: {
