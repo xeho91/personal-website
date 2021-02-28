@@ -2,8 +2,6 @@
 module.exports = {
 	root: "../",
 
-	// extends: "",
-
 	exclude: ["**/node_modules/**/*"],
 
 	mount: {
@@ -12,9 +10,19 @@ module.exports = {
 			static: false,
 			resolve: true,
 		},
+		"../public": {
+			url: "/",
+			static: true,
+			resolve: true,
+		},
 	},
 
-	alias: {},
+	alias: {
+		$public: "../public",
+		$source: "../source",
+		$routes: "../source/routes",
+		$components: "../source/components",
+	},
 
 	plugins: [
 		// https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-svelte
@@ -31,32 +39,39 @@ module.exports = {
 				config: "./config/postcss.config.js",
 			},
 		],
+		// https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-run-script#readme
+		[
+			"@snowpack/plugin-run-script",
+			{
+				cmd: "svelte-check --output human",
+				watch: "$1 --watch",
+				output: "dashboard",
+			},
+		],
 	],
 
 	devOptions: {
 		secure: true,
 		hostname: "localhost",
-		// port: 8080,
-		// fallback: "index.html",
-		open: "**Default**",
+		port: 8080,
+		open: "none",
 		output: "dashboard",
 		hmr: true,
 		hmrDelay: 0,
-		// hmrPort: 8080,
 		hmrErrorOverlay: true,
 		out: "/build",
 	},
 
 	packageOptions: {
-		external: ["fs"],
+		external: require("module").builtinModules,
 		source: "local",
-		// knownEntrypoints: [""],
+		knownEntrypoints: [],
 		polyfillNode: false,
 		// env: {
 		// 	[ENV_NAME: string]: (string true),
 		// },
-		// packageLookupFields: [""],
-		// packageExportLookupFields: [""],
+		packageLookupFields: ["svelte"],
+		packageExportLookupFields: ["svelte"],
 		// rollup: {},
 	},
 
@@ -65,11 +80,9 @@ module.exports = {
 		baseUrl: "../",
 		clean: true,
 		metaUrlPath: "__snowpack__",
-		sourcemap: false,
+		sourcemap: true,
 		watch: false,
-		htmlFragments: true,
-		// jsxFactory: "",
-		// jsxFragment: "",
+		htmlFragments: false,
 	},
 
 	testOptions: {
