@@ -118,3 +118,6 @@ dist
 # Snowpack certification files for enabling HTTPS in development
 snowpack.crt
 snowpack.key
+
+# Build output from Snowpack
+build/
