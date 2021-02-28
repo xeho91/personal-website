@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@import "normalize.css";
+@import "@xeho91/colors";
+@import "@xeho91/fonts";
+/*
+ * Thanks to PostCSS-import plugin, the code above equals to:
+ * `@import "../node_modules/normalize.css"`;
+ * More knowledge: https://jaketrent.com/post/package-json-style-attribute
+ * TL;DR:
+ * Attribute `styles` in `package.json` redirects to specific file.
+ */
+
+html {
+	width: 100%;
+	height: 100%;
+
+	font-family: var(--font_serif);
+
+	background-color: var(--color-clairvoyant);
+}
