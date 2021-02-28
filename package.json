@@ -72,6 +72,10 @@
     "svelte-preprocess": "^4.6.9"
   },
   "dependencies": {
-    "svelte": "^3.32.3"
+    "@xeho91/avatar": "github:xeho91/avatar#main",
+    "@xeho91/colors": "github:xeho91/colors#main",
+    "@xeho91/fonts": "github:xeho91/fonts",
+    "@xeho91/logo": "github:xeho91/logo",
+    "normalize.css": "^8.0.1",
   }
 }
