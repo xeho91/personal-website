@@ -68,7 +68,8 @@
     "stylelint-a11y": "^1.2.3",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-declaration-use-variable": "^1.7.2"
+    "stylelint-declaration-use-variable": "^1.7.2",
+    "svelte-preprocess": "^4.6.9"
   },
   "dependencies": {
     "svelte": "^3.32.3"
