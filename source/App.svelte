@@ -3,6 +3,8 @@
 	import pathFontMonospace from "@xeho91/fonts/build/monospace/FiraCode.woff2";
 	import pathFontSansSerif from "@xeho91/fonts/build/sans-serif/WorkSans.woff2";
 	import pathFontSerif from "@xeho91/fonts/build/serif/Fraunces.woff2";
+
+	import Header from "$components/Header.svelte";
 </script>
 
 <svelte:head>
@@ -11,3 +13,5 @@
 	<link rel="preload" href="{pathFontSansSerif}" as="font" type="font/woff2" crossorigin="anonymous">
 	<link rel="preload" href="{pathFontSerif}" as="font" type="font/woff2" crossorigin="anonymous">
 </svelte:head>
+
+<Header />
