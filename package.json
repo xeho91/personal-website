@@ -45,7 +45,7 @@
     "@snowpack/plugin-svelte": "^3.5.2",
     "commitlint": "^12.0.1",
     "commitlint-config-gitmoji": "^2.2.2",
-    "eslint": "^7.20.0",
+    "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
@@ -77,5 +77,6 @@
     "@xeho91/fonts": "github:xeho91/fonts",
     "@xeho91/logo": "github:xeho91/logo",
     "normalize.css": "^8.0.1",
+    "svelte": "^3.34.0"
   }
 }
