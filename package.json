@@ -19,6 +19,7 @@
   "scripts": {
     "start": "snowpack --config \"./config/snowpack.config.js\" dev",
     "build": "snowpack --config \"./config/snowpack.config.js\" build",
+    "build:icons": "svgstore -o \"./public/assets/images/icons.svg\" \"./source/icons/*.svg\"",
     "check": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --check",
     "fix": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --write",
     "fix:css": "pnpm lint:css --- --fix \"./**/*.css\" && pnpm fix \"./**/*.css\"",
@@ -70,7 +71,8 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-declaration-use-variable": "^1.7.2",
-    "svelte-preprocess": "^4.6.9"
+    "svelte-preprocess": "^4.6.9",
+    "svgstore-cli": "^2.0.0"
   },
   "dependencies": {
     "@xeho91/avatar": "github:xeho91/avatar#main",
