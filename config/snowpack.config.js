@@ -20,8 +20,8 @@ module.exports = {
 	alias: {
 		$public: "../public",
 		$source: "../source",
-		$routes: "../source/routes",
 		$components: "../source/components",
+		$routes: "../source/routes",
 	},
 
 	plugins: [

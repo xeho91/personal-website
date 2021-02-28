@@ -46,16 +46,19 @@ var rulesFromPlugins = {
 
 	"node/no-unsupported-features/es-syntax": [
 		"error",
-		// { ignores: ["modules"] },
+		{ ignores: ["modules"] },
 	],
 
 	"node/no-unpublished-require": "off",
 
 	// https://github.com/benmosher/eslint-plugin-import#rules
 
-	"import/no-unresolved": ["error", {
-		commonjs: true,
-	}],
+	"import/no-unresolved": [
+		"error",
+		{
+			commonjs: true,
+		},
+	],
 };
 
 /** @type { import("eslint/lib/shared/types").ConfigData } */
@@ -118,5 +121,20 @@ module.exports = {
 	rules: {
 		...rulesFromESLint,
 		...rulesFromPlugins,
+	},
+
+	settings: {
+		"import/resolver": {
+			"custom-alias": {
+				alias: {
+					"$public": "./public",
+					"$source": "./source",
+					"$components": "./source/components",
+					"$routes": "./source/routes",
+				},
+
+				extensions: [".js", ".json", ".svelte"],
+			},
+		},
 	},
 };
