@@ -78,6 +78,7 @@
     "@xeho91/fonts": "github:xeho91/fonts",
     "@xeho91/logo": "github:xeho91/logo",
     "normalize.css": "^8.0.1",
-    "svelte": "^3.34.0"
+    "svelte": "^3.34.0",
+    "svelte-routing": "^1.5.0"
   }
 }
