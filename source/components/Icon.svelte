@@ -1,20 +1,21 @@
 <script>
-	export let symbol;
+	import SvelteInlineSVG from "svelte-inline-svg";
+
+	export let src;
 </script>
 
+
 <style>
-	.icon {
+	:global(.icon) {
 		--icon-size: 1em;
 
 
 		width: var(--icon-size);
-		width: var(--icon-size);
+		height: var(--icon-size);
 
-		fill: var(--color-primary);
+		fill: currentColor;
 	}
 </style>
 
 
-<svg class="icon">
-	<use href="./assets/images/icons.svg#{symbol}" />
-</svg>
+<SvelteInlineSVG src="{src}" class="icon" />
