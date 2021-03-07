@@ -17,8 +17,8 @@
     "url": "git+https://github.com/xeho91/personal-wesbite.git"
   },
   "scripts": {
-    "start": "snowpack --config \"./config/snowpack.config.js\" dev",
-    "build": "snowpack --config \"./config/snowpack.config.js\" build",
+    "start": "snowpack dev",
+    "build": "snowpack  build",
     "build:icons": "svgstore -o \"./public/assets/images/icons.svg\" \"./source/icons/*.svg\"",
     "check": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --check",
     "fix": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --write",
@@ -60,7 +60,7 @@
     "markdownlint-cli": "^0.26.0",
     "postcss": "^8.2.6",
     "postcss-cli": "^8.3.1",
-    "postcss-nesting": "^7.0.1",
+    "postcss-preset-env": "^6.7.0",
     "postcss-url": "^10.1.1",
     "prettier": "^2.2.1",
     "prettier-plugin-svelte": "^2.1.6",
@@ -71,7 +71,9 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-declaration-use-variable": "^1.7.2",
+    "svelte": "^3.35.0",
     "svelte-preprocess": "^4.6.9",
+    "svelte-routing": "^1.5.0",
     "svgstore-cli": "^2.0.0"
   },
   "dependencies": {
@@ -79,8 +81,6 @@
     "@xeho91/colors": "github:xeho91/colors#main",
     "@xeho91/fonts": "github:xeho91/fonts",
     "@xeho91/logo": "github:xeho91/logo",
-    "normalize.css": "^8.0.1",
-    "svelte": "^3.34.0",
-    "svelte-routing": "^1.5.0"
+    "normalize.css": "^8.0.1"
   }
 }
