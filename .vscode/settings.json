@@ -12,6 +12,10 @@
     "configFile": "./config/.eslintrc.js",
     "ignorePath": "./config/.eslintignore"
   },
+  "eslint.validate": [
+    "javascript",
+    "svelte",
+  ],
   // Stylelint
   "stylelint.config": {
     "extends": "./config/.stylelintrc.js",

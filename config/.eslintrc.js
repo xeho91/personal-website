@@ -51,6 +51,8 @@ var rulesFromPlugins = {
 
 	"node/no-unpublished-require": "off",
 
+	"node/no-unpublished-import": "off",
+
 	// https://github.com/benmosher/eslint-plugin-import#rules
 
 	"import/no-unresolved": [
@@ -84,7 +86,7 @@ module.exports = {
 	],
 
 	parserOptions: {
-		ecmaVersion: 2020,
+		ecmaVersion: 2021,
 		sourceType: "module",
 	},
 
@@ -92,7 +94,7 @@ module.exports = {
 		// https://github.com/mysticatea/eslint-plugin-node
 		"node",
 
-		// https: //github.com/benmosher/eslint-plugin-import
+		// https://github.com/benmosher/eslint-plugin-import
 		"import",
 
 		// https://github.com/nodesecurity/eslint-plugin-security
@@ -124,17 +126,22 @@ module.exports = {
 	},
 
 	settings: {
+		// https://github.com/benmosher/eslint-plugin-import#settings
 		"import/resolver": {
+			// https://github.com/laysent/eslint-import-resolver-custom-alias#configuration
 			"custom-alias": {
 				alias: {
-					"$public": "./public",
-					"$source": "./source",
-					"$components": "./source/components",
-					"$routes": "./source/routes",
+					$public: "./public",
+					$source: "./source",
+					$components: "./source/components",
+					$routes: "./source/routes",
 				},
 
 				extensions: [".js", ".json", ".svelte"],
 			},
 		},
+
+		// https://github.com/sveltejs/eslint-plugin-svelte3#configuration
+		"svelte3/ignore-styles": () => true,
 	},
 };
