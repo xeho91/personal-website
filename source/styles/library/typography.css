@@ -1,0 +1,78 @@
+@import "@xeho91/fonts";
+
+
+:root {
+	--font_min-size: 1em;
+	--font_scaler: calc(1rem + 3.5vw);
+	--font_incrementer: 1;
+	--font_max-size: 1.15em;
+
+	--font-size: clamp(
+		var(--font_min-size),
+		var(--font_scaler),
+		var(--font_max-size)
+	);
+}
+
+html {
+	font-size: 100%;
+}
+
+body {
+	font-weight: 250;
+	font-size: var(--font-size);
+	font-family: var(--font_sans-serif);
+	font-synthesis: none;
+}
+
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+:--heading {
+	font-weight: 550;
+	font-family: var(--font_serif);
+	text-shadow: 0 0 0.25em hsla(
+		var(--terracotta_hue),
+		var(--terracotta_saturation),
+		var(--terracotta_lightness),
+		var(--shadow-opacity)
+	);
+}
+
+p {
+	font-weight: 350;
+	font-family: var(--font_sans-serif);
+}
+
+em {
+	font-style: italic;
+}
+
+/* stylelint-disable a11y/media-prefers-reduced-motion */
+a {
+	color: inherit;
+
+	text-decoration: none;
+
+	transition: font-weight 0.25s ease-in-out;
+
+	&:hover,
+	&:focus {
+		font-weight: 700;
+
+		@media screen and (prefers-reduced-motion) {
+			transition: none;
+		}
+	}
+}
+
+abbr {
+	cursor: help;
+
+	@media print {
+		text-decoration: none;
+	}
+	@media screen and (--mobile) {
+		font-weight: 600;
+		text-decoration: none;
+	}
+}

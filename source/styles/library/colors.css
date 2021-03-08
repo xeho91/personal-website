@@ -1,0 +1,6 @@
+@import "@xeho91/colors";
+
+:root {
+	--color-primary: var(--color-terracotta);
+	--color-background: var(--color-clairvoyant);
+}

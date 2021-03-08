@@ -11,10 +11,10 @@ module.exports = {
 
 		// https://github.com/csstools/postcss-preset-env
 		postCSSpresetEnv({
-			stage: 2,
+			stage: 1,
 			features: {
 				// https://preset-env.cssdb.org/features
-				"nesting-rules": true,
+				// "nesting-rules": true,
 			},
 		}),
 	],
