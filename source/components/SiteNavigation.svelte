@@ -1,24 +1,27 @@
 <script>
 	import { Link } from "svelte-routing";
+
+	export let to, name;
 </script>
 
+
 <style>
-	ul {
-		display: flex;
-
-		padding: 0;
-	}
-
 	li {
-		padding-left: 1em;
+		min-width: 5em;
+		padding: 0 0.5em;
+
+		text-align: center;
 
 		list-style: none;
 	}
+
+	:global([aria-current="page"]) {
+		font-weight: 700;
+		text-shadow: var(--text-shadow);
+
+		border-bottom: 1px solid var(--color-primary);
+	}
 </style>
 
-<nav id="site-navigation">
-	<ul>
-		<li><Link to="/">Home</Link></li>
-		<li><Link to="about-me">About me</Link></li>
-	</ul>
-</nav>
+
+<li><Link to="{to}">{name}</Link></li>

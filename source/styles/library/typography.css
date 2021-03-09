@@ -12,6 +12,13 @@
 		var(--font_scaler),
 		var(--font_max-size)
 	);
+
+	--text-shadow: 0 0 0.25em hsla(
+		var(--terracotta_hue),
+		var(--terracotta_saturation),
+		var(--terracotta_lightness),
+		var(--shadow-opacity)
+	);
 }
 
 html {
@@ -19,7 +26,7 @@ html {
 }
 
 body {
-	font-weight: 250;
+	font-weight: 300;
 	font-size: var(--font-size);
 	font-family: var(--font_sans-serif);
 	font-synthesis: none;
@@ -30,12 +37,7 @@ body {
 :--heading {
 	font-weight: 550;
 	font-family: var(--font_serif);
-	text-shadow: 0 0 0.25em hsla(
-		var(--terracotta_hue),
-		var(--terracotta_saturation),
-		var(--terracotta_lightness),
-		var(--shadow-opacity)
-	);
+	text-shadow: var(--text-shadow);
 }
 
 p {

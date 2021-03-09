@@ -1,8 +1,7 @@
 <script>
-	import logoFilePath from "@xeho91/logo/build/minified/xeho91-logo.animated.svg";
-
-	import SiteNavigation from "./SiteNavigation.svelte";
 	import SocialMedia from "./SocialMedia.svelte";
+
+	import logoFilePath from "@xeho91/logo/build/minified/xeho91-logo.animated.svg";
 </script>
 
 <style>
@@ -15,13 +14,33 @@
 		height: 10em;
 	}
 
+	#site-navigation {
+		display: flex;
+		place-content: center;
+
+		width: 100%;
+
+
+		& ul {
+			display: flex;
+			/* justify-content: space-between; */
+
+			padding: 0;
+		}
+	}
+
 	img {
 		height: 100%;
 	}
 </style>
 
 <header>
-	<SiteNavigation />
+	<nav id="site-navigation">
+		<ul>
+			<!-- Router.svelte will inject the links here -->
+			<slot />
+		</ul>
+	</nav>
 
 	<img alt="Animated xeho91's logo" src="{ logoFilePath }" />
 
