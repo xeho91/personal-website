@@ -1,9 +1,8 @@
 /** @type { import("@commitlint/types/lib").UserConfig } */
 module.exports = {
-	// https://github.com/arvinxx/gitmoji-commit-workflow
-	extends: ["gitmoji"],
+	// https://github.com/conventional-changelog/commitlint/
+	extends: ["@commitlint/config-conventional"],
 
-	rules: {
-		"scope-case": [0, "always", "start-case"],
-	},
+	/** @type { import("@commitlint/types/lib").RulesConfig } */
+	rules: {},
 };

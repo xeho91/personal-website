@@ -3,7 +3,6 @@
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "vtrois.gitmoji-vscode",
-    "joshbolduc.commitlint",
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "davidanson.vscode-markdownlint",
@@ -11,6 +10,7 @@
     "yzhang.markdown-all-in-one",
     "svelte.svelte-vscode",
     "ardenivanov.svelte-intellisense",
-    "fivethree.vscode-svelte-snippets"
+    "fivethree.vscode-svelte-snippets",
+    "vivaxy.vscode-conventional-commits"
   ]
 }
