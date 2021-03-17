@@ -56,7 +56,7 @@
     "lint-staged": "^10.5.4",
     "markdownlint": "^0.23.1",
     "markdownlint-cli": "^0.27.1",
-    "postcss": "^8.2.7",
+    "postcss": "^8.2.8",
     "postcss-cli": "^8.3.1",
     "postcss-preset-env": "^6.7.0",
     "postcss-url": "^10.1.1",
@@ -70,15 +70,16 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-declaration-use-variable": "^1.7.2",
     "svelte": "^3.35.0",
-    "svelte-inline-svg": "^1.0.7",
+    "svelte-hmr": "^0.13.1",
+    "svelte-inline-svg": "^1.0.8",
     "svelte-preprocess": "^4.6.9",
     "svelte-routing": "^1.5.0"
   },
   "dependencies": {
     "@xeho91/avatar": "github:xeho91/avatar#main",
     "@xeho91/colors": "github:xeho91/colors#main",
-    "@xeho91/fonts": "github:xeho91/fonts",
-    "@xeho91/logo": "github:xeho91/logo",
+    "@xeho91/fonts": "github:xeho91/fonts#main",
+    "@xeho91/logo": "github:xeho91/logo#main",
     "normalize.css": "^8.0.1"
   }
 }
