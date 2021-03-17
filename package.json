@@ -38,9 +38,6 @@
     "node": ">=14.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.0",
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
     "@commitlint/config-conventional": "^12.0.1",
     "@snowpack/plugin-postcss": "^1.2.0",
     "@snowpack/plugin-run-script": "^2.3.0",
