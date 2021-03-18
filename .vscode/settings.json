@@ -1,32 +1,11 @@
 {
   // Prettier
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.configPath": "./config/.prettierrc.js",
-  "prettier.ignorePath": "./config/.prettierignore",
-  // Commitlint
-  "commitlint.config.file": "./config/.commitlintrc.js",
   // Gitmoji
   "gitmoji.outputType": "code",
   // ESLint
-  "eslint.options": {
-    "configFile": "./config/.eslintrc.js",
-    "ignorePath": "./config/.eslintignore"
-  },
   "eslint.validate": [
     "javascript",
     "svelte",
   ],
-  // Stylelint
-  "stylelint.config": {
-    "extends": "./config/.stylelintrc.js",
-  },
-  // Markdownlint
-  "markdownlint.config": {
-    "extends": "./config/.markdownlint.json",
-    "MD013": {
-      "line_length": 80,
-      "stern": false,
-      "tables": false
-    }
-  },
 }

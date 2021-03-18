@@ -19,20 +19,20 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "check": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --check",
+    "check": "prettier --check --plugin-search-dir \".\"",
     "commit": "gacp --no-add",
-    "fix": "prettier --config \"./config/.prettierrc.js\" --ignore-path \"./config/.prettierignore\" --write",
+    "fix": "prettier --write --plugin-search-dir \".\"",
     "fix:css": "pnpm lint:css --- --fix \"./**/*.css\" && pnpm fix \"./**/*.css\"",
     "fix:js": "pnpm lint:js --- --fix \"./**/*.js\" && pnpm fix \"./**/*.js\"",
     "fix:md": "pnpm lint:md --- --fix \"./**/*.md\" && pnpm fix \"./**/*.md\"",
     "fix:svelte": "pnpm lint:svelte --- --fix \"./**/*.svelte\" && pnpm fix \"./**/*.svelte\"",
-    "lint:commits": "commitlint --config \"./config/.commitlintrc.js\" --from \"develop\" --to \"HEAD\"",
-    "lint:css": "stylelint --config \"./config/.stylelintrc.js\" --ignore-path \"./config/.stylelintignore\"",
-    "lint:js": "eslint --config \"./config/.eslintrc.js\" --ignore-path \"./config/.eslintignore\" --ext \".js\"",
-    "lint:md": "markdownlint --config \"./config/.markdownlint.json\" --ignore-path \"./config/.markdownlintignore\"",
-    "lint:svelte": "eslint --config \"./config/.eslintrc.js\" --ignore-path \"./config/.eslintignore\" --ext \".svelte\"",
-    "lint:staged": "lint-staged --config \"./config/.lintstagedrc.js\" --verbose",
-    "postinstall": "husky install \"config/.husky\""
+    "lint:commits": "commitlint --from \"develop\" --to \"HEAD\"",
+    "lint:css": "stylelint",
+    "lint:js": "eslint --ext \".js\"",
+    "lint:md": "markdownlint",
+    "lint:svelte": "eslint --ext \".svelte\" && stylelint",
+    "lint:staged": "lint-staged --verbose",
+    "postinstall": "husky install"
   },
   "engines": {
     "node": ">=14.0.0"

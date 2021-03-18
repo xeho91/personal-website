@@ -14,6 +14,7 @@ var rules_plugins = {
 	],
 };
 
+/** @type { import("stylelint").Configuration } */
 module.exports = {
 	extends: [
 		// https://github.com/constverum/stylelint-config-rational-order
