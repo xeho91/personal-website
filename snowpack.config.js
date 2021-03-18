@@ -19,9 +19,11 @@ module.exports = {
 
 	alias: {
 		$public: "./public",
+		$icons: "./public/assets/images/icons",
 		$source: "./source",
 		$components: "./source/components",
 		$routes: "./source/routes",
+		$library: "./source/styles/library",
 	},
 
 	plugins: [

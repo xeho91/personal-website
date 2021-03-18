@@ -132,9 +132,11 @@ module.exports = {
 			"custom-alias": {
 				alias: {
 					$public: "./public",
+					$icons: "./public/assets/images/icons",
 					$source: "./source",
 					$components: "./source/components",
 					$routes: "./source/routes",
+					$library: "./source/styles/libary",
 				},
 
 				extensions: [".js", ".json", ".svelte"],
