@@ -7,7 +7,7 @@
 
 <style>
 	:global(.icon) {
-		--icon-size: 1em;
+		--icon-size: var(--font-size);
 
 
 		width: var(--icon-size);
