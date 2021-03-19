@@ -4,6 +4,7 @@
 	export let to, name;
 </script>
 
+<li><Link {to}>{name}</Link></li>
 
 <style>
 	li {
@@ -22,6 +23,3 @@
 		border-bottom: 1px solid var(--color-primary);
 	}
 </style>
-
-
-<li><Link to="{to}">{name}</Link></li>

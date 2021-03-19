@@ -1,6 +1,5 @@
 @import "@xeho91/fonts";
 
-
 :root {
 	--font_min-size: 1em;
 	--font_scaler: calc(1rem + 3.5vw);
@@ -13,12 +12,16 @@
 		var(--font_max-size)
 	);
 
-	--text-shadow: 0 0 0.25em hsla(
-		var(--terracotta_hue),
-		var(--terracotta_saturation),
-		var(--terracotta_lightness),
-		var(--shadow-opacity)
-	);
+	--font-weight_normal: 300;
+	--font-weight_bolder: 700;
+
+	--text-shadow: 0 0 0.25em
+		hsla(
+			var(--terracotta_hue),
+			var(--terracotta_saturation),
+			var(--terracotta_lightness),
+			var(--shadow-opacity)
+		);
 }
 
 html {
@@ -26,7 +29,7 @@ html {
 }
 
 body {
-	font-weight: 300;
+	font-weight: var(--font-weight_normal);
 	font-size: var(--font-size);
 	font-family: var(--font_sans-serif);
 	font-synthesis: none;

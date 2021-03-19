@@ -5,12 +5,12 @@ module.exports = {
 	exclude: ["**/node_modules/**/*"],
 
 	mount: {
-		"./public": {
+		"./static": {
 			url: "/",
 			static: true,
 			resolve: true,
 		},
-		"./source": {
+		"./src": {
 			url: "/assets/",
 			static: false,
 			resolve: true,
@@ -18,12 +18,12 @@ module.exports = {
 	},
 
 	alias: {
-		$public: "./public",
-		$icons: "./public/assets/images/icons",
-		$source: "./source",
-		$components: "./source/components",
-		$routes: "./source/routes",
-		$library: "./source/styles/library",
+		$static: "./static",
+		$icons: "./static/images/icons",
+		$src: "./src",
+		$components: "./src/components",
+		$routes: "./src/routes",
+		$library: "./src/styles/library",
 	},
 
 	plugins: [

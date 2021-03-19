@@ -31,17 +31,16 @@
 	import SiteNavigation from "$components/SiteNavigation.svelte";
 </script>
 
-
-<Router url="{url}">
+<Router {url}>
 	<Header>
 		{#each routes as route}
-			<SiteNavigation to="{route.path}" name="{route.name}" />
+			<SiteNavigation to={route.path} name={route.name} />
 		{/each}
 	</Header>
 
 	<main>
 		{#each routes as route}
-			<Route path="{route.path}" component="{route.component}" />
+			<Route path={route.path} component={route.component} />
 		{/each}
 	</main>
 </Router>

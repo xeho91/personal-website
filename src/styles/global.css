@@ -2,9 +2,9 @@
 
 @import "normalize.css";
 
-@import "./library/colors.css";
-@import "./library/typography.css";
-
+@import "$library/colors.css";
+@import "$library/typography.css";
+@import "$library/miscelaneous.css";
 
 html {
 	width: 100%;

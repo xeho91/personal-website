@@ -63,7 +63,7 @@ var rulesFromPlugins = {
 	],
 };
 
-/** @type { import("eslint/lib/shared/types").ConfigData } */
+/** @type { import("eslint").Linter.Config } */
 module.exports = {
 	extends: [
 		// https://github.com/eslint/eslint/blob/master/conf/eslint-recommended.js
@@ -131,12 +131,12 @@ module.exports = {
 			// https://github.com/laysent/eslint-import-resolver-custom-alias#configuration
 			"custom-alias": {
 				alias: {
-					$public: "./public",
-					$icons: "./public/assets/images/icons",
-					$source: "./source",
-					$components: "./source/components",
-					$routes: "./source/routes",
-					$library: "./source/styles/libary",
+					$static: "./static",
+					$icons: "./static/images/icons",
+					$src: "./src",
+					$components: "./src/components",
+					$routes: "./src/routes",
+					$library: "./src/styles/libary",
 				},
 
 				extensions: [".js", ".json", ".svelte"],

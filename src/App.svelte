@@ -7,7 +7,6 @@
 	import Router from "$components/Router.svelte";
 </script>
 
-
 <svelte:head>
 	<!-- Favicon -->
 	<link rel="icon" type="image/svg+xml" href={pathFavicon} />
@@ -36,5 +35,8 @@
 	/>
 </svelte:head>
 
-
 <Router />
+
+<style global>
+	@import "$src/styles/global.css";
+</style>

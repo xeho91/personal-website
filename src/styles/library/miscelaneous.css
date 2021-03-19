@@ -1,0 +1,9 @@
+:root {
+	--box-shadow: 0 0 0.15em 0.15em
+		hsla(
+			var(--terracotta_hue),
+			var(--terracotta_saturation),
+			var(--terracotta_lightness),
+			var(--shadow-opacity)
+		);
+}
