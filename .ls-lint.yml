@@ -1,0 +1,19 @@
+ls:
+  src:
+    .js: kebab-case
+    .css: lowercase
+    .html: kebab-case
+    .svelte: PascalCase
+
+    pages:
+        .svelte: kebab-case
+
+ignore:
+  - .git
+  - .husky
+  - .routify
+  - .vscode
+  - build
+  - node_modules
+  - src/pages/_fallback.svelte
+  - src/pages/_layout.svelte
