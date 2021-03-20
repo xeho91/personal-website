@@ -1,13 +1,13 @@
 import { readFileSync } from "fs";
+import { cwd } from "process";
 
 /** @type { import('vite').UserConfig } */
 export default {
 	// https://vitejs.dev/config/
 
-	root: process.cwd(),
+	root: cwd(),
 	base: "/",
 	mode: "development",
-	// define: "",
 	publicDir: "static",
 
 	plugins: [require("@svitejs/vite-plugin-svelte")({})],
@@ -20,75 +20,33 @@ export default {
 			prefix: "$",
 		}),
 		dedupe: ["@roxi/routify"],
-		// conditions: [""],
-		// mainFields: ["module", "jsnext:main", "jsnext"],
 		extensions: [".mjs", ".js", ".json", ".svelte"],
 	},
 
-	// css: {
-	// 	modules: {},
-
-	// 	postcss: {},
-
-	// 	preprocessorOptions: {},
-	// },
-
-	// json: {
-	// 	namedExports: true,
-	// 	stringify: false,
-	// },
-
-	// esbuild: {},
-
-	//  assetsInclude: "",
-
-	// logLevel: "info",
-
-	// clearScreen: true,
-
 	server: {
-		// host: "",
 		port: 8080,
 		https: {
 			cert: readFileSync("server.cert"),
 			key: readFileSync("server.key"),
 		},
-		// open: false,
-		// proxy: {},
-		// cors: {},
-		// force: true,
-		// hmr: true,
-		// watch: {},
 	},
 
 	build: {
-		// target: "esnext",
-		polyfillDynamicImport: true,
+		target: "esnext",
 		outDir: "build",
-		// assetsDir: "assets",
+		assetsDir: "assets",
 		assetsInlineLimit: 4096,
-		// cssCodeSplit: true,
-		// rollupOptions: {},
-		// commonjsOptions: {},
-		// lib: ["es", "umd"],
-		// manifest: false,
-		// minify: "esbuild",
-		// terserOptions: {},
-		// cleanCssOptions: {},
+		cssCodeSplit: true,
+		sourcemap: "inline",
+		manifest: true,
+		minify: "esbuild",
 		write: true,
 		emptyOutDir: true,
 		brotliSize: true,
-		// chunkSizeWarningLimit: 500,
+		chunkSizeWarningLimit: 150,
 	},
 
 	optimizeDeps: {
-		// entries: [],
 		exclude: ["@roxi/routify"],
-		// include: [],
-	},
-
-	ssr: {
-		// external: [""],
-		// noExternal: Object.keys(pkg.dependencies || {}),
 	},
 };
