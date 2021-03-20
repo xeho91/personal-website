@@ -130,14 +130,16 @@ module.exports = {
 		"import/resolver": {
 			// https://github.com/laysent/eslint-import-resolver-custom-alias#configuration
 			"custom-alias": {
-				alias: {
-					$static: "./static",
-					$icons: "./static/images/icons",
-					$src: "./src",
-					$components: "./src/components",
-					$routes: "./src/routes",
-					$library: "./src/styles/libary",
-				},
+				alias: require("vite-aliases")
+					.getAliases({
+						// https://github.com/subwaytime/vite-aliases
+
+						// Prefix Symbol for the aliases
+						prefix: "$",
+					})
+					.reduce((acc, curr) => {
+						return { ...acc, [curr.find]: curr.replacement };
+					}, {}),
 
 				extensions: [".js", ".json", ".svelte"],
 			},

@@ -79,7 +79,8 @@
     "svelte": "^3.35.0",
     "svelte-inline-svg": "^1.0.8",
     "svelte-preprocess": "^4.6.9",
-    "vite": "^2.1.2"
+    "vite": "^2.1.2",
+    "vite-aliases": "^0.5.1"
   },
   "dependencies": {
     "@xeho91/avatar": "github:xeho91/avatar#main",

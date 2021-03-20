@@ -1,9 +1,3 @@
-import { resolve } from "path";
-// import { readFileSync } from "fs";
-// import { cwd } from "process";
-
-// const pkg = JSON.parse(readFileSync(join(cwd(), "package.json")));
-
 /** @type { import('vite').UserConfig } */
 export default {
 	// https://vitejs.dev/config/
@@ -17,14 +11,12 @@ export default {
 	plugins: [require("@svitejs/vite-plugin-svelte")({})],
 
 	resolve: {
-		alias: {
-			$static: resolve("./static"),
-			$icons: resolve("./static/images/icons"),
-			$src: resolve("./src"),
-			$components: resolve("./src/components"),
-			$pages: resolve("./src/pages"),
-			$styles: resolve("./src/styles"),
-		},
+		alias: require("vite-aliases").getAliases({
+			// https://github.com/subwaytime/vite-aliases
+
+			// Prefix Symbol for the aliases
+			prefix: "$",
+		}),
 		dedupe: ["@roxi/routify"],
 		// conditions: [""],
 		// mainFields: ["module", "jsnext:main", "jsnext"],
