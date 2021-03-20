@@ -9,8 +9,9 @@
 <style>
 	:global(.icon) {
 		--icon-size: var(--font-size);
-		width: var(--icon-size);
 
+
+		width: var(--icon-size);
 		height: var(--icon-size);
 
 		fill: currentColor;

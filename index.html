@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>xeho91's website</title>
+	</head>
+
+	<body>
+		<noscript>
+			<p>This website uses a JavaScript framework <a href="https://svelte.dev/">Svelte</a>.
+			The source code of this website is available at the
+			<a href="https://github.com/xeho91/personal-website/">GitHub repository</a>.</p>
+			<p>Without JavaScript enabled, this website will not work.</p>
+		</noscript>
+
+		<script type="module">
+			import HMR from '@roxi/routify/hmr'
+			import App from "./src/App.svelte";
+
+			const app = HMR(App, {
+				target: document.body,
+			}, 'routify-app');
+
+			export default app;
+		</script>
+	</body>
+</html>

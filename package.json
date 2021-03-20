@@ -17,10 +17,13 @@
     "url": "git+https://github.com/xeho91/personal-wesbite.git"
   },
   "scripts": {
-    "start": "snowpack dev",
-    "build": "snowpack build",
+    "start": "vite preview",
+    "build": "routify --single-build && vite build",
     "check": "prettier --check --plugin-search-dir \".\"",
     "commit": "gacp --no-add",
+    "dev": "run-p dev:*",
+    "dev:routify": "routify",
+    "dev:vite": "vite",
     "fix": "prettier --write --plugin-search-dir \".\"",
     "fix:css": "run-s \"lint:css -- --fix ./**/*.css\" \"fix ./**/*.css\"",
     "fix:js": "run-s \"lint:js -- --fix ./**/*.js\" \"fix ./**/*.js\"",
@@ -39,9 +42,8 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^12.0.1",
-    "@snowpack/plugin-postcss": "^1.2.0",
-    "@snowpack/plugin-run-script": "^2.3.0",
-    "@snowpack/plugin-svelte": "^3.5.2",
+    "@roxi/routify": "^2.16.0",
+    "@svitejs/vite-plugin-svelte": "^0.11.1",
     "commitlint": "^12.0.1",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
@@ -63,7 +65,6 @@
     "postcss-url": "^10.1.1",
     "prettier": "^2.2.1",
     "prettier-plugin-svelte": "^2.2.0",
-    "snowpack": "^3.0.13",
     "stylelint": "^13.12.0",
     "stylelint-8-point-grid": "^1.0.0",
     "stylelint-a11y": "^1.2.3",
@@ -71,10 +72,9 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-declaration-use-variable": "^1.7.2",
     "svelte": "^3.35.0",
-    "svelte-hmr": "^0.13.1",
-    "svelte-inline-svg": "^1.0.8",
     "svelte-preprocess": "^4.6.9",
-    "svelte-routing": "^1.5.0"
+    "svelte-inline-svg": "^1.0.8",
+    "vite": "^2.1.2"
   },
   "dependencies": {
     "@xeho91/avatar": "github:xeho91/avatar#main",

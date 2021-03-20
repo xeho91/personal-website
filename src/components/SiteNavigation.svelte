@@ -1,25 +1,51 @@
 <script>
-	import { Link } from "svelte-routing";
+	import { isActive, url } from "@roxi/routify";
 
-	export let to, name;
+	const links = [
+		["./index", "About me"],
+		["./contact", "Contact"],
+		["./resume", "Resume"],
+	];
 </script>
 
-<li><Link {to}>{name}</Link></li>
+<nav id="site-navigation">
+	<ul>
+		{#each links as [path, name]}
+			<li><a
+					href="{$url(path)}"
+					aria-current="{$isActive(path) ? "page" : null}"
+				>{name}</a></li>
+		{/each}
+	</ul>
+</nav>
 
 <style>
-	li {
-		min-width: 5em;
-		padding: 0 0.5em;
+	#site-navigation {
+		display: flex;
+		place-content: center;
 
-		text-align: center;
+		width: 100%;
 
-		list-style: none;
-	}
+		& > ul {
+			display: flex;
 
-	:global([aria-current="page"]) {
-		font-weight: 700;
-		text-shadow: var(--text-shadow);
+			padding: 0;
 
-		border-bottom: 1px solid var(--color-primary);
+			& > li {
+				min-width: 5em;
+				padding: 0 0.5em;
+
+				text-align: center;
+
+				list-style: none;
+
+				& > a[aria-current="page"] {
+					font-weight: 700;
+					text-shadow: var(--text-shadow);
+
+					border-bottom: 1px solid var(--color-primary);
+				}
+			}
+		}
 	}
 </style>
