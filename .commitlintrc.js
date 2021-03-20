@@ -4,5 +4,7 @@ module.exports = {
 	extends: ["@commitlint/config-conventional"],
 
 	/** @type { import("@commitlint/types/lib").RulesConfig } */
-	rules: {},
+	rules: {
+		"scope-case": [0],
+	},
 };
