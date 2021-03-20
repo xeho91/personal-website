@@ -1,9 +1,9 @@
 <script>
 	import Icon from "$components/Icon.svelte";
 
-	import iconGitHub from "$icons/github.svg";
-	import iconTwitter from "$icons/twitter.svg";
-	import iconLinkedin from "$icons/linkedin.svg";
+	import iconGitHub from "@iconify-icons/simple-icons/twitter.js";
+	import iconTwitter from "@iconify-icons/simple-icons/github.js";
+	import iconLinkedin from "@iconify-icons/simple-icons/linkedin.js";
 
 	let profiles = [
 		{
@@ -27,7 +27,7 @@
 <nav id="social-media">
 	<ul>
 		{#each profiles as profile}
-			<li><a href={profile.url}><Icon src={profile.icon} />
+			<li><a href={profile.url}><Icon name={profile.icon} />
 			<span class="tooltip">View my {profile.name} profile</span></a></li>
 		{/each}
 	</ul>
@@ -91,7 +91,7 @@
 							transition: all 0.2s ease-in-out;
 						}
 
-						fill: var(--color-background);
+						color: var(--color-background);
 					}
 
 					& > span {

@@ -43,6 +43,8 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^12.0.1",
+    "@iconify-icons/simple-icons": "^1.1.16",
+    "@iconify/svelte": "^1.0.4",
     "@ls-lint/ls-lint": "^1.9.2",
     "@roxi/routify": "^2.16.0",
     "@svitejs/vite-plugin-svelte": "^0.11.1",

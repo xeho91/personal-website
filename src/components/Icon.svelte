@@ -1,10 +1,16 @@
 <script>
-	import SvelteInlineSVG from "svelte-inline-svg";
+	// import SvelteInlineSVG from "svelte-inline-svg";
+	import IconifyIcon from "@iconify/svelte";
 
-	export let src;
+	export let name;
 </script>
 
-<SvelteInlineSVG {src} class="icon" />
+<IconifyIcon
+	icon={name}
+	class="icon"
+	height="auto"
+	inline="{true}"
+/>
 
 <style>
 	:global(.icon) {
@@ -13,7 +19,5 @@
 
 		width: var(--icon-size);
 		height: var(--icon-size);
-
-		fill: currentColor;
 	}
 </style>

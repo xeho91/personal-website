@@ -66,6 +66,8 @@ This repository contains the source code of [xeho91]'s website project.
   - [Svelte] - a framework for building cybernetically enhanced web apps
     - [Routify] - for building routes for Svelte apps, automated by file
                   structure
+    - [Iconify] - for injecting icons as Svelte components
+      - [Simple Icons] - a library of popular brand icons in SVG
   - [Vite] - a front-end tooling _(cold server)_ that offers instant HMR _(Hot
              Module Replacement)_ and on-demand compilation - powered by
              native ES modules
@@ -83,6 +85,8 @@ This repository contains the source code of [xeho91]'s website project.
 [Prettier]: https://github.com/prettier/prettier
 [Svelte]: https://github.com/sveltejs/svelte
 [Routify]: https://github.com/roxiness/routify
+[Iconify]: https://github.com/iconify/iconify
+[Simple Icons]: https://github.com/simple-icons/simple-icons
 [Vite]: https://github.com/vitejs/vite
 [PostCSS]: https://github.com/postcss/postcss
 [Markdown]: https://github.com/mattcone/markdown-guide
