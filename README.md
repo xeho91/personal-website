@@ -107,6 +107,16 @@ This repository contains the source code of [xeho91]'s website project.
 
 ---
 
-## Security
+## Feedback
 
-See instructions in [SECURITY.md](./SECURITY.md) file.
+Do you have any suggestions on what I could improve in this website project?\
+**Especially in terms of accessibility**, this would be priority number one for
+me.
+
+Please [create an issue] on this GitHub repository or contact me through the
+[contact subpage] on my website.
+
+I appreciate any help you can provide. :heart:
+
+[create an issue]: https://github.com/xeho91/personal-website/issues/new/choose
+[contact subpage]: https://xeho91.site/contact
