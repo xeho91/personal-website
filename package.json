@@ -46,6 +46,7 @@
     "@ls-lint/ls-lint": "^1.9.2",
     "@roxi/routify": "^2.16.0",
     "@svitejs/vite-plugin-svelte": "^0.11.1",
+    "autoprefixer": "^10.2.5",
     "commitlint": "^12.0.1",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
@@ -74,8 +75,8 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-declaration-use-variable": "^1.7.2",
     "svelte": "^3.35.0",
-    "svelte-preprocess": "^4.6.9",
     "svelte-inline-svg": "^1.0.8",
+    "svelte-preprocess": "^4.6.9",
     "vite": "^2.1.2"
   },
   "dependencies": {

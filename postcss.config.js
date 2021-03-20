@@ -1,21 +1,18 @@
-var postCSSurl = require("postcss-url");
-var postCSSpresetEnv = require("postcss-preset-env");
-
 module.exports = {
 	plugins: [
-		// https://github.com/postcss/postcss-import
-		// postCSSimport(),
-
 		// https://github.com/postcss/postcss-url
-		postCSSurl(),
+		require("postcss-url")(),
 
 		// https://github.com/csstools/postcss-preset-env
-		postCSSpresetEnv({
+		require("postcss-preset-env")({
 			stage: 1,
 			features: {
 				// https://preset-env.cssdb.org/features
 				// "nesting-rules": true,
 			},
 		}),
+
+		// https://github.com/postcss/autoprefixer
+		require("autoprefixer"),
 	],
 };
