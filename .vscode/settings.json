@@ -8,4 +8,10 @@
     "javascript",
     "svelte",
   ],
+  // Stylelint
+  "stylelint.validate": [
+    "css",
+    "postcss",
+    "svelte",
+  ],
 }
