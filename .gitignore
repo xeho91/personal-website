@@ -116,8 +116,8 @@ dist
 .pnp.*
 
 # Files for enabling HTTPS in development
-cert.pem
-key.pem
+server.cert
+server.key
 
 # Build output from Vite
 build/

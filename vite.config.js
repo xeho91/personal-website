@@ -1,3 +1,5 @@
+import { readFileSync } from "fs";
+
 /** @type { import('vite').UserConfig } */
 export default {
 	// https://vitejs.dev/config/
@@ -47,10 +49,10 @@ export default {
 	server: {
 		// host: "",
 		port: 8080,
-		// https: {
-		// 	cert: readFileSync("cert.pem"),
-		// 	key: readFileSync("key.pem"),
-		// },
+		https: {
+			cert: readFileSync("server.cert"),
+			key: readFileSync("server.key"),
+		},
 		// open: false,
 		// proxy: {},
 		// cors: {},
