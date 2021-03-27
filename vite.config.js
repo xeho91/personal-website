@@ -10,7 +10,7 @@ export default {
 	mode: "development",
 	publicDir: "static",
 
-	plugins: [require("@svitejs/vite-plugin-svelte")({})],
+	plugins: [require("@sveltejs/vite-plugin-svelte")({})],
 
 	resolve: {
 		alias: require("vite-aliases").getAliases({
