@@ -6,9 +6,9 @@
 	import Alert from "$lib/Alert.svelte";
 
 	import { page, metatags } from "@roxi/routify";
-	import { site_metadata } from "$data/site.js";
+	import { SITE_METADATA } from "$data/site.js";
 
-	$: metatags.title = `${site_metadata.name} | ${$page.title}`;
+	$: metatags.title = `${SITE_METADATA.name} | ${$page.title}`;
 </script>
 
 <SiteHeader />
