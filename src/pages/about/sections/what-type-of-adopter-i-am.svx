@@ -1,0 +1,24 @@
+---
+title: What type of adopter I am?
+---
+
+## {title}
+
+<details>
+	<summary>the answer</summary>
+
+By standard definitions, I am an _Early Adopter_.<br />
+I don't take pride in being the first to use new technologies or products.
+I like to research them, try to find their potential and provide feedback.<br />
+Naturally, I pick them with caution and understanding.
+**It suits my interest in software researching**.
+While I do that, I pay attention to privacy and security depending on the
+software purpose.
+
+I don't try to be an opinion leader, neither become an influencer.
+I carefully select my _"own circle"_ of them from the IT industry and the
+marine world.
+In modern times, I am doing my best to not fall into the trap of being
+misinformed.
+
+</details>

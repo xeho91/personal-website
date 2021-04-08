@@ -1,0 +1,39 @@
+---
+title: Who am I?
+---
+
+<script>
+	import Link from "$lib/Link.svelte";
+</script>
+
+# {title}
+
+<img id="xeho91-avatar" alt="xeho91" src="/images/favicon.svg" />
+
+I am a **concerned Global Citizen**.
+Passionate about the natural history of the _world's oceans_,
+_sustainable development_ and _digital privacy rights_ on the Internet.
+
+For a while, I have dug myself deeper into the topic of digital privacy
+rights on the Internet and modern front-end technologies - such
+as <Link wiki="Svelte" />.
+
+Below I will share a little more about me in <abbr title="Ask Me Anything">
+AMA</abbr> format.
+The purpose of it is for me to _remember_,
+especially when I tend to forget how to respond to these kinds of questions.
+
+<style>
+	#xeho91-avatar {
+		float: left;
+
+		height: calc((100vw / var(--golden-ratio)) / 2);
+		max-height: 20vh;
+		margin-right: 1ch;
+
+		shape-outside: circle(50%);
+
+		border-radius: 50%;
+		box-shadow: var(--box-shadow);
+	}
+</style>

@@ -1,0 +1,64 @@
+---
+title: Why a Global Citizen?
+---
+
+## {title}
+
+<script>
+	import Flag from "$lib/Flag.svelte";
+	import Icon from "$lib/Icon.svelte";
+	import Map from "$lib/Map.svelte";
+	import Link from "$lib/Link.svelte";
+
+	import iconEarth from "@iconify-icons/twemoji/globe-showing-asia-australia.js";
+
+	import flagPoland from "@iconify-icons/twemoji/flag-for-poland.js";
+	import flagBrazil from "@iconify-icons/twemoji/flag-for-brazil.js";
+	import flagNewZealand from "@iconify-icons/twemoji/flag-for-new-zealand.js";
+	import flagTaiwan from "@iconify-icons/twemoji/flag-for-taiwan.js";
+	import flagIreland from "@iconify-icons/twemoji/flag-for-ireland.js";
+</script>
+
+<details>
+	<summary>the answer</summary>
+
+As <Link wiki="Thor Heyerdahl" /> once said:
+
+> Borders? I have never seen one.<br />
+> But I have heard they exist… in&nbsp;the&nbsp;minds of some people.
+
+Like him, I don't see the borders.
+
+My home is <Icon data={iconEarth} />Earth, and I care about the entire
+planet.
+I treat every habitant equally without any discrimination.
+I have been living in:
+
+<Map />
+
+- <Flag data={flagPoland} name="Poland" />,
+- <Flag data={flagBrazil} name="Brazil" />,
+- <Flag data={flagNewZealand} name="New Zealand" />,
+- <Flag data={flagTaiwan} name="Taiwan" />
+- and <Flag data={flagIreland} name="Ireland" />.
+
+I don't plan to stop discovering other cultures and their lifestyles anytime
+soon.
+Astonishingly, little I knew if I didn't start to experience with my own
+eyes.
+
+</details>
+
+<style>
+	details {
+		& > summary::before {
+			content: "Show ";
+		}
+
+		&[open] {
+			& > summary::before {
+				content: "Hide ";
+			}
+		}
+	}
+</style>

@@ -1,45 +1,48 @@
 <script>
-	import Header from "$components/SiteHeader.svelte";
+	import SiteHeader from "$lib/Site/Header.svelte";
+	import SiteContent from "$lib/Site/Content.svelte";
+	import SiteFooter from "$lib/Site/Footer.svelte";
 
-	import pathFavicon from "@xeho91/avatar";
+	import Alert from "$lib/Alert.svelte";
 
-	import pathFontMonospace from "@xeho91/fonts/build/monospace/FiraCode.woff2?url";
-	import pathFontSansSerif from "@xeho91/fonts/build/sans-serif/WorkSans.woff2?url";
-	import pathFontSerif from "@xeho91/fonts/build/serif/Fraunces.woff2?url";
+	import { page, metatags } from "@roxi/routify";
+	import { site_metadata } from "$data/site.js";
+
+	$: metatags.title = `${site_metadata.name} | ${$page.title}`;
 </script>
 
-<svelte:head>
-	Favicon
-	<link rel="icon" type="image/svg+xml" href={pathFavicon}>
-
-	Fonts
-	<link
-		rel="preload"
-		as="font"
-		type="font/woff2"
-		href={pathFontSansSerif}
-		crossorigin="anonymous"
-	>
-	<link
-		rel="preload"
-		as="font"
-		type="font/woff2"
-		href={pathFontSerif}
-		crossorigin="anonymous"
-	>
-	<link
-		rel="font"
-		type="font/woff2"
-		href={pathFontMonospace}
-	>
-</svelte:head>
-
-<Header />
-
-<main>
+<SiteHeader />
+<SiteContent>
+	<Alert type="warning">
+		This website is under development and not ready yet.
+	</Alert>
 	<slot />
-</main>
+</SiteContent>
+<SiteFooter />
 
-<style global>
-	@import "$styles/global.css";
+<style>
+	:global(#svelte) {
+		--header-height: 5em;
+		--content-padding: 2.5vh;
+		--site-shadow: 0 0 1em 0.5em hsla(var(--kilamanjaro_HSL), 0.75);
+		--color-background: var(--color-clairvoyant);
+		--color-content: var(--color-terracotta);
+
+		position: relative;
+
+		display: grid;
+		grid-template-areas:
+			"header"
+			"content"
+			"footer";
+		grid-template-rows:
+			auto
+			calc(100vh - var(--header-height))
+			auto;
+		grid-template-columns: 1fr;
+		place-content: flex-start center;
+
+		max-width: var(--tablet-width);
+		margin: 0 auto;
+	}
 </style>
