@@ -10,7 +10,13 @@ export default {
 	mode: "development",
 	publicDir: "static",
 
-	plugins: [require("@sveltejs/vite-plugin-svelte")({})],
+	plugins: [
+		require("@sveltejs/vite-plugin-svelte")(require("./svelte.config.js")),
+	],
+
+	css: {
+		postcss: require("./postcss.config.js"),
+	},
 
 	resolve: {
 		alias: require("vite-aliases").getAliases({
@@ -37,7 +43,6 @@ export default {
 		assetsDir: "assets",
 		assetsInlineLimit: 4096,
 		cssCodeSplit: true,
-		sourcemap: "inline",
 		manifest: true,
 		minify: "esbuild",
 		write: true,
@@ -48,5 +53,9 @@ export default {
 
 	optimizeDeps: {
 		exclude: ["@roxi/routify"],
+	},
+
+	ssr: {
+		noExternal: Object.keys(require("./package.json").dependencies || {}),
 	},
 };
