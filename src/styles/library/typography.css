@@ -1,6 +1,14 @@
-@import "@xeho91/fonts";
-
 :root {
+	--font-weight_smaller: 300;
+	--font-weight_normal: 400;
+	--font-weight_bolder: 700;
+	--font-weight_italic: 350;
+	--font-weight_heading: 550;
+
+	--font_monospace: "Fira Code", monospace;
+	--font_sans-serif: "Work Sans", sans-serif;
+	--font_serif: Fraunces, serif;
+
 	--font_min-size: 1em;
 	--font_scaler: calc(1rem + 3.5vw);
 	--font_incrementer: 1;
@@ -12,9 +20,6 @@
 		var(--font_max-size)
 	);
 
-	--font-weight_normal: 300;
-	--font-weight_bolder: 700;
-
 	--text-shadow: 0 0 0.25em
 		hsla(
 			var(--terracotta_hue),
@@ -24,60 +29,128 @@
 		);
 }
 
+/* Monospace */
+@font-face {
+	font-weight: var(--font-weight_smaller) var(--font-weight_bolder);
+	font-family: "Fira Code";
+	font-style: normal;
+	src: url("/fonts/monospace/FiraCode.woff2") format("woff2");
+	font-display: swap;
+}
+
+/* Sans-serif */
+@font-face {
+	font-weight: var(--font-weight_smaller) var(--font-weight_bolder);
+	font-family: "Work Sans";
+	font-style: normal;
+	src: url("/fonts/sans-serif/WorkSans.woff2") format("woff2");
+	font-display: swap;
+}
+@font-face {
+	font-weight: var(--font-weight_smaller) var(--font-weight_bolder);
+	font-family: "Work Sans";
+	font-style: italic;
+	src: url("/fonts/sans-serif/WorkSans.italic.woff2") format("woff2");
+	font-display: swap;
+}
+
+/* Serif */
+@font-face {
+	font-weight: var(--font-weight_heading);
+	font-family: "Fraunces";
+	font-style: normal;
+	src: url("/fonts/serif/Fraunces.woff2") format("woff2");
+	font-display: swap;
+}
+
 html {
 	font-size: 100%;
 }
 
 body {
-	font-weight: var(--font-weight_normal);
+	font-weight: var(--font-weight_smaller);
 	font-size: var(--font-size);
 	font-family: var(--font_sans-serif);
 	font-synthesis: none;
 }
 
-@custom-selector :--heading h1, h2, h3, h4, h5, h6;
-
-:--heading {
-	font-weight: 550;
+:--headings {
+	font-weight: var(--font-weight_heading);
 	font-family: var(--font_serif);
 	text-shadow: var(--text-shadow);
 }
 
-p {
-	font-weight: 350;
+p, li {
+	font-weight: var(--font-weight_normal);
 	font-family: var(--font_sans-serif);
+
+	line-height: 1.5em;
 }
 
 em {
+	font-weight: var(--font-weight_italic);
 	font-style: italic;
 }
 
-/* stylelint-disable a11y/media-prefers-reduced-motion */
-a {
-	color: inherit;
+pre {
+	font-family: var(--font_monospace);
+}
 
-	text-decoration: none;
+blockquote {
+	position: relative;
 
-	transition: font-weight 0.25s ease-in-out;
+	width: fit-content;
+	padding: 0.1em 1em;
 
-	&:hover,
-	&:focus {
-		font-weight: 700;
+	font-style: italic;
 
-		@media screen and (prefers-reduced-motion) {
-			transition: none;
-		}
+	border-radius: 1em;
+
+	&::before,
+	&::after {
+		position: absolute;
+		top: calc(50% + 0.25em);
+
+		font-size: 3em;
+
+		transform: translateY(-50%);
+	}
+	&::before {
+		left: -0.5ch;
+
+		content: "“";
+	}
+	&::after {
+		right: -0.25ch;
+
+		content: "”";
 	}
 }
 
-abbr {
-	cursor: help;
+/* NOTE: It cannot be nested */
+@property --offset {
+	syntax: "<length>";
+	inherits: false;
+	initial-value: 0;
+}
 
-	@media print {
-		text-decoration: none;
+a {
+	--offset-value: 0.05em;
+
+	@supports not (background:paint(something)) {
+		text-underline-offset: var(--offset-value);
 	}
-	@media screen and (--mobile) {
-		font-weight: 600;
-		text-decoration: none;
+	@supports (background:paint(something)) {
+		text-underline-offset: var(--offset, var(--offset-value));
+	}
+
+	@media (--motion) {
+		transition: --offset var(--transition), all var(--transition);
+	}
+
+	&:hover,
+	&:focus {
+		--offset: 0.3em;
+		--offset-value: var(--offset);
 	}
 }

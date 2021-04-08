@@ -1,6 +1,74 @@
 @import "@xeho91/colors";
 
 :root {
-	--color-primary: var(--color-terracotta);
-	--color-background: var(--color-clairvoyant);
+	--gradient:
+		var(--color-clairvoyant),
+		var(--color-mulberry),
+		var(--color-disco),
+		var(--color-punch),
+		var(--color-terracotta);
+}
+
+body {
+	--color-content: var(--color-terracotta);
+	--color-link: var(--color-calico);
+
+	color: var(--color-content);
+
+	/*
+	 * NOTE:
+	 * Save the performance for unecessary paiting?
+	 */
+	@media screen and (--desktop) {
+		background: linear-gradient(180deg, var(--gradient));
+	}
+}
+
+a {
+	color: var(--color-link);
+
+	text-shadow: none;
+
+	&:hover,
+	&:focus {
+		--color-link: var(--color-content);
+
+		text-decoration-color: var(--color-content);
+
+		text-shadow:
+			0 0 0.9px var(--color-link),
+			0 0 0.9px var(--color-link),
+			0 0 0.9px var(--color-link);
+	}
+}
+
+hr {
+	border: 1px dashed var(--color-content);
+}
+
+blockquote {
+	--color-background: var(--color-terracotta);
+
+	background: var(--color-background);
+}
+
+
+.info {
+	--color-background: var(--color-koamaru);
+	--color-content: var(--color-calico);
+}
+
+.warning {
+	--color-background: var(--color-pizza);
+	--color-content: var(--color-kilamanjaro);
+}
+
+.error {
+	--color-background: var(--color-mahogany);
+	--color-content: var(--color-calico);
+}
+
+.success {
+	--color-background: var(--color-jade);
+	--color-content: var(--color-kilamanjaro);
 }
