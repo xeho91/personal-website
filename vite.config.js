@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+// import { readFileSync } from "fs";
 import { cwd } from "process";
 
 /** @type { import('vite').UserConfig } */
@@ -31,10 +31,10 @@ export default {
 
 	server: {
 		port: 3000,
-		https: {
-			cert: readFileSync("server.crt"),
-			key: readFileSync("server.key"),
-		},
+		// https: {
+		// 	cert: readFileSync("server.crt"),
+		// 	key: readFileSync("server.key"),
+		// },
 		cors: {
 			origin: ["https://en.wikipedia.org/"],
 		},
