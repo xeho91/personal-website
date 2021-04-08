@@ -4,14 +4,20 @@
   // Gitmoji
   "gitmoji.outputType": "code",
   // ESLint
+  "eslint.packageManager": "pnpm",
   "eslint.validate": [
     "javascript",
     "svelte",
   ],
   // Stylelint
+  "stylelint.packageManager": "pnpm",
   "stylelint.validate": [
     "css",
     "postcss",
     "svelte",
   ],
+  // MDSxeX integration
+  "files.associations": {
+    "*.svx": "markdown"
+  },
 }

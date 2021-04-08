@@ -109,7 +109,7 @@ module.exports = {
 
 	overrides: [
 		{
-			files: ["*.svelte"],
+			files: ["*.svelte", "*.svx"],
 			processor: "svelte3/svelte3",
 		},
 	],
@@ -141,7 +141,7 @@ module.exports = {
 						return { ...acc, [curr.find]: curr.replacement };
 					}, {}),
 
-				extensions: [".js", ".json", ".svelte"],
+				extensions: [".js", ".json", ".svelte", ".svx"],
 			},
 		},
 

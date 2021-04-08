@@ -22,18 +22,21 @@ export default {
 		alias: require("vite-aliases").getAliases({
 			// https://github.com/subwaytime/vite-aliases
 
-			// Prefix Symbol for the aliases
+			// Prefix symbol for the aliases
 			prefix: "$",
 		}),
 		dedupe: ["@roxi/routify"],
-		extensions: [".mjs", ".js", ".json", ".svelte"],
+		extensions: [".mjs", ".js", ".json", ".svelte", ".svx"],
 	},
 
 	server: {
-		port: 8080,
+		port: 3000,
 		https: {
-			cert: readFileSync("server.cert"),
+			cert: readFileSync("server.crt"),
 			key: readFileSync("server.key"),
+		},
+		cors: {
+			origin: ["https://en.wikipedia.org/"],
 		},
 	},
 
