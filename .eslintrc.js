@@ -37,7 +37,7 @@ var rulesFromESLint = {
 var rulesFromPlugins = {
 	// https://github.com/mysticatea/eslint-plugin-node#-rules
 
-	"node/file-extension-in-import": ["error", "always"],
+	"node/file-extension-in-import": ["warn", "always"],
 
 	// Let eslint-import-plugin deal with resolving modules
 	"node/no-missing-import": "off",
@@ -46,7 +46,7 @@ var rulesFromPlugins = {
 
 	"node/no-unsupported-features/es-syntax": [
 		"error",
-		{ ignores: ["modules"] },
+		{ ignores: ["modules", "dynamicImport"] },
 	],
 
 	"node/no-unpublished-require": "off",
