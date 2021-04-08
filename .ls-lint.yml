@@ -6,7 +6,7 @@ ls:
     .svelte: PascalCase
 
     pages:
-        .svelte: kebab-case
+        .svelte: kebab-case | regex:^\_.*
 
 ignore:
   - .git
@@ -15,5 +15,3 @@ ignore:
   - .vscode
   - build
   - node_modules
-  - src/pages/_fallback.svelte
-  - src/pages/_layout.svelte
