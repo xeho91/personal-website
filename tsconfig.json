@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "node",
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "importsNotUsedAsValues": "error",
+    "importHelpers": true,
+    "isolatedModules": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "allowJs": true,
+    "checkJs": true,
+    "paths": {
+      "$app/*": [
+        ".svelte-kit/dev/runtime/app/*",
+        ".svelte-kit/build/runtime/app/*"
+      ],
+      "$data/*": ["src/data/*"],
+      "$lib/*": ["src/lib/*"],
+      "$styles/*": ["src/styles/*"]
+    }
+  },
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.svelte"
+  ]
+}

@@ -17,21 +17,13 @@
     "url": "https://github.com/xeho91/personal-wesbite/issues"
   },
   "scripts": {
-    "build": "routify --single-build && vite build",
-    "check": "prettier --check --plugin-search-dir \".\"",
+    "build": "svelte-kit build",
     "commit": "gacp --no-add",
     "copy-assets": "run-p copy:*",
     "copy:favicon": "node \"./scripts/copyAssets.js\" favicon",
     "copy:logo": "node \"./scripts/copyAssets.js\" logo",
     "copy:fonts": "node \"./scripts/copyAssets.js\" fonts",
-    "dev": "run-p dev:*",
-    "dev:routify": "routify",
-    "dev:vite": "vite",
-    "fix": "prettier --write --plugin-search-dir \".\"",
-    "fix:css": "run-s \"lint:css -- --fix ./**/*.css\" \"fix ./**/*.css\"",
-    "fix:js": "run-s \"lint:js -- --fix ./**/*.js\" \"fix ./**/*.js\"",
-    "fix:md": "run-s \"lint:md -- --fix ./**/*.md\" \"fix ./**/*.md\"",
-    "fix:svelte": "run-s \"lint:svelte -- --fix ./**/*.md\" \"fix ./**/*.svelte\"",
+    "dev": "svelte-kit dev",
     "lint:commits": "commitlint --from \"develop\" --to \"HEAD\"",
     "lint:css": "stylelint",
     "lint:ls": "ls-lint",
@@ -39,17 +31,18 @@
     "lint:md": "markdownlint",
     "lint:svelte": "eslint --ext \".svelte\" && stylelint",
     "lint:staged": "lint-staged --verbose",
-    "start": "vite preview",
-    "postinstall": "husky install"
+    "preview": "svelte-kit preview"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=15.0.0"
   },
+  "type": "module",
   "devDependencies": {
     "@commitlint/config-conventional": "^12.1.1",
+    "@iconify/svelte": "^1.0.4",
     "@ls-lint/ls-lint": "^1.9.2",
-    "@roxi/routify": "^2.15.1",
-    "@sveltejs/vite-plugin-svelte": "1.0.0-next.6",
+    "@sveltejs/adapter-node": "next",
+    "@sveltejs/kit": "next",
     "autoprefixer": "^10.2.5",
     "commitlint": "^12.1.1",
     "eslint": "^7.23.0",
@@ -81,21 +74,20 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-declaration-use-variable": "^1.7.2",
-    "svelte": "^3.37.0",
-    "svelte-preprocess": "^4.7.0",
-    "vite": "^2.1.5",
-    "vite-aliases": "^0.5.1"
+    "svelte": "^3.38.2",
+    "svelte-inline-svg": "^1.0.8",
+    "svelte-preprocess": "^4.7.3",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4"
   },
   "dependencies": {
     "@iconify-icons/carbon": "^1.1.3",
     "@iconify-icons/simple-icons": "^1.1.19",
     "@iconify-icons/twemoji": "^1.1.1",
-    "@iconify/svelte": "^1.0.4",
     "@xeho91/avatar": "github:xeho91/avatar#main",
     "@xeho91/colors": "github:xeho91/colors#main",
     "@xeho91/fonts": "github:xeho91/fonts#main",
     "@xeho91/logo": "github:xeho91/logo#main",
-    "normalize.css": "^8.0.1",
-    "svelte-inline-svg": "^1.0.8"
+    "normalize.css": "^8.0.1"
   }
 }
