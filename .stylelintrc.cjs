@@ -1,8 +1,16 @@
-var rules_stylelint = {
+const rulesFromStylelint = {
 	// https://stylelint.io/user-guide/rules/list
+
+	"selector-pseudo-class-no-unknown": [true, {
+		ignorePseudoClasses: ["global"]
+	}],
+
+	"at-rule-no-unknown": [true, {
+		ignoreAtRules: ["define-mixin", "mixin"]
+	}]
 };
 
-var rules_plugins = {
+const rulesFromPlugins = {
 	"order/properties-order": [[], { severity: "warning" }],
 	"plugin/rational-order": [
 		true,
@@ -18,6 +26,9 @@ var rules_plugins = {
 /** @type { import("stylelint").Configuration } */
 module.exports = {
 	extends: [
+		// https://github.com/stylelint/stylelint-config-standard
+		"stylelint-config-recommended",
+
 		// https://github.com/constverum/stylelint-config-rational-order
 		"stylelint-config-rational-order",
 
@@ -46,7 +57,7 @@ module.exports = {
 	],
 
 	rules: {
-		...rules_stylelint,
-		...rules_plugins,
+		...rulesFromStylelint,
+		...rulesFromPlugins,
 	},
 };
