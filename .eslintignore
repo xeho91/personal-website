@@ -1,4 +1,7 @@
-.routify/
+# Ignore files/directories
+.svelte-kit/
 build/
 node_modules/
+
+# Unignore files starting with dot (configuration files)
 !.*
