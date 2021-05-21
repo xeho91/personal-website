@@ -79,6 +79,7 @@
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-declaration-use-variable": "^1.7.2",
     "svelte": "^3.38.2",
+    "svelte-check": "^1.5.4",
     "svelte-inline-svg": "^1.0.8",
     "svelte-preprocess": "^4.7.3",
     "tslib": "^2.2.0",
