@@ -6,7 +6,9 @@ import mdsvexConfig from "./mdsvex.config.cjs";
 import postcssConfig from "./postcss.config.cjs";
 import { config as dotenvConfig } from "dotenv";
 
-dotenvConfig();
+if (process.env.NODE_ENV === "development") {
+	dotenvConfig();
+}
 
 /** @type {import("@sveltejs/kit").Config} */
 const svelteConfig = {

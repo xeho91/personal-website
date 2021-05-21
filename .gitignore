@@ -122,3 +122,8 @@ server.key
 # Build output from Vite & Svelte-Kit
 .svelte-kit/
 build/
+
+# Ignore (and don't ignore) for dotenv.
+.env
+.env.me
+!.env.project
