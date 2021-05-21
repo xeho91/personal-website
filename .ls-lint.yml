@@ -5,8 +5,8 @@ ls:
     .html: kebab-case
     .svelte: PascalCase
 
-    pages:
-        .svelte: kebab-case | regex:^\_.*
+    routes:
+        .svelte: kebab-case | regex:^(\_\_).*
 
 ignore:
   - .git
