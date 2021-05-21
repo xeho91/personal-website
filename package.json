@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package",
   "name": "personal-website",
   "description": "xeho91's personal website project.",
   "keywords": [
@@ -25,12 +26,13 @@
     "copy:fonts": "node \"./scripts/copyAssets.js\" fonts",
     "dev": "svelte-kit dev",
     "lint:commits": "commitlint --from \"develop\" --to \"HEAD\"",
-    "lint:css": "stylelint",
+    "lint:css": "stylelint **/*.css **/*.svelte",
     "lint:ls": "ls-lint",
-    "lint:js": "eslint --ext \".js\"",
-    "lint:md": "markdownlint",
-    "lint:svelte": "eslint --ext \".svelte\" && stylelint",
+    "lint:js": "eslint --ext \".js,.cjs,.ts,.svelte\" .",
+    "lint:md": "markdownlint **/*.md",
+    "lint:svelte": "svelte-check; eslint --ext \".svelte\" .; stylelint **/*.svelte",
     "lint:staged": "lint-staged --verbose",
+    "postinstall": "husky install",
     "preview": "svelte-kit preview"
   },
   "engines": {
