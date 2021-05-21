@@ -1,5 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "strict": true,
     "moduleResolution": "node",
@@ -9,6 +10,7 @@
       "ESNext",
       "DOM"
     ],
+    "noEmit": true,
     "importsNotUsedAsValues": "error",
     "importHelpers": true,
     "isolatedModules": true,
