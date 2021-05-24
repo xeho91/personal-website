@@ -28,7 +28,13 @@ module.exports = {
 				useTabs: false,
 			},
 		},
+		{
+			files: "*.svelte",
+			options: { parser: "svelte" },
+		},
 	],
+
+	plugins: ["prettier-plugin-svelte"],
 
 	// https://github.com/sveltejs/prettier-plugin-svelte
 	svelteSortOrder: "options-scripts-markup-styles",
