@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>xeho91's site</title>
+
+		<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+		<!-- TODO: Should it be here or in the layout? -->
+		<link rel="preload" as="font" type="font/woff2" href="/fonts/serif/Fraunces.woff2" crossorigin="anonymous">
+		<link rel="preload" as="font" type="font/woff2" href="/fonts/sans-serif/WorkSans.woff2" crossorigin="anonymous">
+
+		%svelte.head%
+	</head>
+
+	<body class="no-javascript">
+		<script>
+			document.body.removeAttribute("class");
+		</script>
+
+		<div id="svelte" />
+
+		%svelte.body%
+	</body>
+</html>
+
+
+
+
