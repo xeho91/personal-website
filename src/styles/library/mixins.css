@@ -1,0 +1,115 @@
+/*
+ * Appearance
+ */
+@define-mixin color {
+	color: var(--color-foreground);
+}
+@define-mixin background {
+	background: var(--color-background);
+}
+@define-mixin border {
+	border-color: var(--color-border);
+	border-style: var(--border-style);
+	border-width: var(--border-width);
+}
+@define-mixin outline {
+	outline-width: var(--outline-width);
+	outline-style: var(--outline-style);
+	outline-color: var(--color-outline);
+}
+@define-mixin box-shadow {
+	box-shadow:
+		var(--shadow-offsetX)
+		var(--shadow-offsetY)
+		var(--shadow-blur)
+		var(--shadow-spread)
+		var(--color-shadow);
+}
+@define-mixin text-shadow {
+	text-shadow:
+		var(--shadow-offsetX)
+		var(--shadow-offsetY)
+		var(--shadow-blur)
+		var(--color-shadow);
+}
+
+/*
+ * Flex
+ */
+@define-mixin flex $direction {
+	display: flex;
+	flex-direction: $direction;
+	@mixin-content;
+}
+@define-mixin flex-center $direction {
+	display: flex;
+	flex-direction: $direction;
+	place-content: center;
+	place-items: center;
+	@mixin-content;
+}
+@define-mixin flex-center-x $direction {
+	display: flex;
+	flex-direction: $direction;
+	place-content: center;
+	@mixin-content;
+}
+@define-mixin flex-center-y $direction {
+	display: flex;
+	flex-direction: $direction;
+	place-items: center;
+	@mixin-content;
+}
+
+/*
+ * Positioning
+ */
+@define-mixin top $position {
+	position: $position;
+	top: 0;
+	@mixin-content;
+}
+@define-mixin bottom $position {
+	position: $position;
+	bottom: 0;
+	@mixin-content;
+}
+@define-mixin left $position {
+	position: $position;
+	left: 0;
+	@mixin-content;
+}
+@define-mixin right $position {
+	position: $position;
+	right: 0;
+	@mixin-content;
+}
+@define-mixin center $position {
+	position: $position;
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+}
+@define-mixin center-x $position {
+	position: $position;
+	left: 50%;
+	@mixin-content;
+
+	transform: translateX(-50%);
+}
+@define-mixin center-y $position {
+	position: $position;
+	top: 50%;
+	@mixin-content;
+
+	transform: translateY(-50%);
+}
+
+/*
+ * Other
+ */
+@define-mixin circle $size {
+	border-radius: 50%;
+	size: $size;
+}
