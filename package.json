@@ -1,15 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "personal-website",
-  "description": "xeho91's personal website project.",
-  "keywords": [
-    "personal",
-    "website"
-  ],
-  "version": "0.0.0",
   "license": "SEE LICENSE IN LICENSE",
-  "author": "xeho91 <xeho91@pm.me> (https://xeho91.site/)",
-  "homepage": "https://xeho91.site/",
+  "author": "xeho91 <xeho91@pm.me> (https://xeho91.com/)",
+  "homepage": "https://xeho91.com/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xeho91/personal-wesbite.git"
@@ -17,6 +10,10 @@
   "bugs": {
     "url": "https://github.com/xeho91/personal-wesbite/issues"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "type": "module",
   "scripts": {
     "build": "svelte-kit build",
     "commit": "gacp --emoji emoji --no-add --no-push",
@@ -36,24 +33,19 @@
     "preview": "svelte-kit preview",
     "prepare": "husky install"
   },
-  "engines": {
-    "node": ">=16.0.0"
-  },
-  "type": "module",
   "devDependencies": {
     "@commitlint/config-conventional": "^12.1.4",
-    "@iconify/svelte": "^1.0.4",
     "@ls-lint/ls-lint": "^1.9.2",
     "@sveltejs/adapter-node": "next",
     "@sveltejs/adapter-static": "next",
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
     "@tsconfig/svelte": "^1.0.10",
+    "@types/node": "^15.6.0",
     "@types/nodemailer": "^6.4.1",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
     "autoprefixer": "^10.2.5",
-    "case": "^1.6.3",
     "commitlint": "^12.1.4",
     "dotenv": "^9.0.2",
     "eslint": "^7.26.0",
@@ -74,6 +66,7 @@
     "postcss": "^8.3.0",
     "postcss-cli": "^8.3.1",
     "postcss-mixins": "^8.0.0",
+    "postcss-normalize": "^10.0.0",
     "postcss-preset-env": "^6.7.0",
     "postcss-reporter": "^7.0.2",
     "postcss-size": "^4.0.1",
@@ -92,7 +85,6 @@
     "stylelint-declaration-use-variable": "^1.7.3",
     "svelte": "^3.38.2",
     "svelte-check": "^1.5.4",
-    "svelte-inline-svg": "^1.0.8",
     "svelte-preprocess": "^4.7.3",
     "tslib": "^2.2.0",
     "typescript": "^4.2.4"
@@ -101,10 +93,14 @@
     "@iconify-icons/carbon": "^1.1.3",
     "@iconify-icons/simple-icons": "^1.1.25",
     "@iconify-icons/twemoji": "^1.1.1",
+    "@iconify/svelte": "^1.0.4",
     "@xeho91/avatar": "github:xeho91/avatar#main",
-    "@xeho91/colors": "github:xeho91/colors#main",
+    "@xeho91/colors": "^3.0.1",
     "@xeho91/fonts": "github:xeho91/fonts#main",
     "@xeho91/logo": "github:xeho91/logo#main",
-    "normalize.css": "^8.0.1"
+    "case": "^1.6.3",
+    "cl-editor": "^2.2.1",
+    "normalize.css": "^8.0.1",
+    "svelte-inline-svg": "^1.0.8"
   }
 }
