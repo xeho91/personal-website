@@ -10,9 +10,7 @@
       "ESNext",
       "DOM"
     ],
-    "noEmit": true,
     "importsNotUsedAsValues": "error",
-    "importHelpers": true,
     "isolatedModules": true,
     "sourceMap": true,
     "esModuleInterop": true,
@@ -29,8 +27,11 @@
       ],
       "$data/*": ["src/data/*"],
       "$lib/*": ["src/lib/*"],
-      "$styles/*": ["src/styles/*"]
-    }
+      "$scripts/*": ["src/scripts/*"],
+      "$styles/*": ["src/styles/*"],
+      "$types/*": ["src/types/*"]
+    },
+    "types": ["node", "svelte"]
   },
   "include": [
     "src/**/*.d.ts",
