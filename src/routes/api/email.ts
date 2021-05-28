@@ -13,13 +13,27 @@ export type ContactFormData = {
 	sendACopy: boolean;
 };
 
+const isProduction = process.env["NODE_ENV"] === "production";
+
 /** Object with credentials for communicating with the SMTP mail server */
 const transport = createTransport({
-	host: process.env["MAILTRAP_HOST"],
-	port: Number(process.env["MAILTRAP_PORT"]),
+	host: isProduction
+		? process.env["PROTONMAIL_HOST"]
+		: process.env["MAILTRAP_HOST"],
+	port: isProduction
+		? Number(process.env["PROTONMAIL_PORT"])
+		: Number(process.env["MAILTRAP_PORT"]),
+	secure: isProduction,
 	auth: {
-		user: process.env["MAILTRAP_USER"],
-		pass: process.env["MAILTRAP_PASSWORD"],
+		user: isProduction
+			? process.env["PROTONMAIL_USER"]
+			: process.env["MAILTRAP_USER"],
+		pass: isProduction
+			? process.env["PROTONMAIL_PASSWORD"]
+			: process.env["MAILTRAP_PASSWORD"],
+	},
+	tls: {
+		rejectUnauthorized: false,
 	},
 });
 
@@ -38,11 +52,11 @@ function createEmail(formData: ContactFormData, referer: string) {
 	`;
 
 	const email: MailOptions = {
-		from: process.env["SENDER_EMAIL"],
+		from: `xeho91's bot <${process.env["SENDER_EMAIL"]}>`,
 		to: process.env["RECIPIENT_EMAIL"],
 		cc: formData.sendACopy ? formData.email : undefined,
 		subject: formData.subject
-			|| `[xeho91.site] A new message from ${formData.firstName}`,
+			|| `[${process.env["SITE_DOMAIN"]}] A new message from ${formData.firstName}`,
 		html: emailTemplate,
 		replyTo: formData.email,
 	};
