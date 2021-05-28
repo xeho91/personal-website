@@ -1,7 +1,7 @@
-import adapter from "@sveltejs/adapter-node";
-import { mdsvex } from "mdsvex";
 import path from "path";
+import adapter from "@sveltejs/adapter-node";
 import preprocess from "svelte-preprocess";
+import { mdsvex } from "mdsvex";
 import mdsvexConfig from "./mdsvex.config.cjs";
 import postcssConfig from "./postcss.config.cjs";
 import { config as dotenvConfig } from "dotenv";
@@ -16,7 +16,7 @@ const svelteConfig = {
 	compilerOptions: null,
 
 	// an array of file extensions that should be treated as Svelte components
-	extensions: [".json", ".svelte", ...mdsvexConfig.extensions],
+	extensions: [".svelte", ...mdsvexConfig.extensions],
 
 	preprocess: [
 		// https://github.com/sveltejs/svelte-preprocess
@@ -39,7 +39,9 @@ const svelteConfig = {
 			resolve: {
 				alias: {
 					$data: path.resolve("src/data"),
+					$scripts: path.resolve("src/scripts"),
 					$styles: path.resolve("src/styles"),
+					$types: path.resolve("src/types"),
 				},
 			},
 
