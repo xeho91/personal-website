@@ -1,21 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "strict": true,
-    "moduleResolution": "node",
     "module": "ESNext",
     "target": "ESNext",
     "lib": [
       "ESNext",
       "DOM"
     ],
-    "importsNotUsedAsValues": "error",
-    "isolatedModules": true,
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
     "downlevelIteration": true,
     "baseUrl": ".",
     "allowJs": true,
