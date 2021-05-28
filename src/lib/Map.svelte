@@ -1,49 +1,65 @@
-<script>
+<script lang="typescript">
 	import InlineSVG from "svelte-inline-svg";
 
-	import { mapVisible, mapShowCountry } from "$data/stores.js";
+	import { map } from "$data/stores";
 	import { beforeUpdate } from "svelte";
 
-	function hideMap({ target }) {
-		if (target.id === "world-map" || target.nodeName === "SPAN") {
-			mapVisible.set(false);
+	/** Hide map in the DOM, if click happens outside map element */
+	function handleClick({ target }: MouseEvent) {
+		if (
+			(target && (target as HTMLDivElement).id === "world-map") ||
+			(target as HTMLElement).nodeName === "SPAN"
+		) {
+			$map.hidden = true;
 		}
 	}
 
-	function hideOnEscapeKey({ key }) {
-		if (mapVisible && key === "Escape") {
-			mapVisible.set(false);
+	/** Hide map in the DOM */
+	function handleKeydown({ key }: KeyboardEvent) {
+		if (!$map.hidden && key === "Escape") {
+			$map.hidden = true;
 		}
 	}
 
+	/** Update country to highlight */
 	beforeUpdate(() => {
-		let name = $mapShowCountry;
-		console.log($mapShowCountry);
 		let mapElement = document.getElementById("world-map");
 
-		if (mapElement) {
-			let hightlightedElements = [ ...mapElement.querySelectorAll(".highlighted") ];
+		if ($map.showCountry && mapElement) {
+			let hightlightedElements = Array.from(
+				mapElement.querySelectorAll(".highlighted")
+			);
 
 			if (hightlightedElements?.length) {
-				hightlightedElements.forEach((element) => element.classList.remove("highlighted"));
+				hightlightedElements.forEach((element) =>
+					element.classList.remove("highlighted")
+				);
 			}
 
-			let pathWithId = mapElement.querySelector(`#${name}`);
+			let pathWithId = mapElement.querySelector(`#${$map.showCountry}`);
 
 			if (pathWithId) {
 				pathWithId.classList.add("highlighted");
 			} else {
-				let pathsWithClass = [ ...mapElement.querySelectorAll(`.${name}`) ];
+				let pathsWithClass = Array.from(
+					mapElement.querySelectorAll(`.${$map.showCountry}`)
+				);
 
 				if (pathsWithClass?.length) {
-					pathsWithClass.forEach((path) => path.classList.add("highlighted"));
+					pathsWithClass.forEach((path) =>
+						path.classList.add("highlighted")
+					);
 				} else {
-					let pathsWithAttribute = mapElement.querySelectorAll(`[name="${name}"]`)
+					let pathsWithAttribute = mapElement.querySelectorAll(
+						`[name="${$map.showCountry}"]`
+					);
 
 					if (pathsWithAttribute) {
-						pathsWithAttribute.forEach((path) => path.classList.add("highlighted"));
+						pathsWithAttribute.forEach((path) =>
+							path.classList.add("highlighted")
+						);
 					} else {
-						console.error("Country not found!");
+						throw Error("This country name was not found!");
 					}
 				}
 			}
@@ -51,68 +67,76 @@
 	});
 </script>
 
-<svelte:window on:keydown={hideOnEscapeKey} />
+<svelte:window on:keydown={handleKeydown} />
 
 <div
 	id="world-map"
-	aria-hidden="{!$mapVisible}"
+	aria-hidden={$map.hidden}
 	aria-label="World map with the country highlighted"
-	on:click={hideMap}
+	on:click={handleClick}
 >
-	<span>Click anywhere outside the map to close it</span>
-
 	<InlineSVG src="/images/world.svg" />
+
+	<span class="tip" >
+		Click anywhere outside the map or press <strong>Escape</strong> key
+		to close it.
+	</span>
 </div>
 
-
-<style>
+<style lang="postcss">
 	#world-map {
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 2;
+		@mixin top fixed {
+			left: 0;
+			z-index: 2;
+		}
 
-		display: flex;
-		flex-direction: column-reverse;
-		place-content: center;
-		place-items: center;
+		@mixin flex-center column;
 
-		width: 100%;
-		height: 100%;
+		size: 100%;
+
 		padding: 5%;
 
-		background-color: hsla(var(--kilamanjaro_HSL), 0.90);
+		background-color: hsla(var(--kilamanjaro_HSL), 0.75);
 
-		& > span {
+		& > .tip {
+			--color-foreground: var(--color-pampas);
+			--color-background: var(--color-koamaru);
+
 			padding: 0.25em;
 
-			color: var(--color-terracotta);
+			@mixin color;
 
-			font-size: 0.85em;
+			font-size: smaller;
+			text-align: center;
 
-			background-color: var(--color-kilamanjaro);
+			@mixin background;
 			border-radius: 1em;
 		}
 
 		& > :global(svg) {
+			--color-foreground: hsla(var(--calico_HSL), 0.75);
+			--color-background: var(--color-clairvoyant);
+
 			width: calc(100vw - (var(--content-padding) * 2));
 			max-width: var(--tablet-width);
 			padding: 2.5%;
 
-			background-color: var(--color-clairvoyant);
-			border: 0.25em solid var(--color-terracotta);
+			@mixin background;
+			@mixin border;
 			border-radius: 1em;
-			box-shadow: 0 0 10px 2px var(--color-kilamanjaro);
+			@mixin box-shadow;
 
-			fill: var(--color-calico);
+			fill: var(--color-foreground);
 
 			& :global(.highlighted) {
-				fill: var(--color-punch);
-				stroke: var(--color-punch);
+				--color-foreground: var(--color_highlighted-fg);
+
+				fill: var(--color-foreground);
+
+				stroke: var(--color-foreground);
 				stroke-width: 0.5em;
 				stroke-opacity: 0.5;
 				stroke-linejoin: round;
-
 
 				paint-order: markers;
 
@@ -127,8 +151,13 @@
 	}
 
 	@keyframes pulse {
-		0%, 100% { stroke-width: 0em; }
-		50% { stroke-width: 2em; }
+		0%,
+		100% {
+			stroke-width: 0em;
+		}
+		50% {
+			stroke-width: 2em;
+		}
 	}
 
 	#world-map[aria-hidden="true"] {

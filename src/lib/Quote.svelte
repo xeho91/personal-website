@@ -1,30 +1,31 @@
-<script>
-	export let cite;
+<script lang="typescript">
+	export let cite: string;
 </script>
 
-<blockquote cite="{cite}">
+<blockquote {cite}>
 	<slot />
 </blockquote>
 
-<style>
+<style lang="postcss">
 	blockquote {
 		--color-background: var(--color-terracotta);
+		--blockquote-padding: 1em;
 
 		position: relative;
 
 		width: fit-content;
-		padding: 0.25em 1em;
+		padding: calc(var(--blockquote-padding) / 2) var(--blockquote-padding);
 
 		font-style: italic;
 
-		background: var(--color-background);
-		border-radius: 1em;
+		@mixin background;
+		border-radius: var(--blockqoute-padding);
 
 		&::before,
 		&::after {
 			position: absolute;
 
-			font-size: 2em;
+			font-size: larger;
 		}
 		&::before {
 			bottom: 0;
