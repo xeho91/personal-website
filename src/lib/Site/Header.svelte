@@ -1,32 +1,31 @@
 <script>
-	import SiteNavigation from "$lib/Site/Navigation.svelte";
 	import SiteLogo from "$lib/Site/Logo.svelte";
-	import SocialMediaNav from "$lib/SocialMediaNav.svelte";
+	import Connect from "$lib/Connect.svelte";
 </script>
 
 <header id="site-header">
-	<SiteNavigation />
 	<SiteLogo />
-	<SocialMediaNav />
+	<Connect />
 </header>
 
-<style>
+<style lang="postcss">
 	#site-header {
-		position: sticky;
-		top: 0;
-		left: 0;
-		z-index: 1;
+		grid-area: header;
+
+		@mixin top sticky {
+			left: 0;
+			z-index: 1;
+		}
 
 		display: grid;
-		grid-area: header;
-		grid-template-areas: "navigation logo social-media";
+		grid-template-areas: "navigation logo connect";
 		grid-template-rows: var(--header-height);
-		grid-template-columns: auto 1fr auto;
+		grid-template-columns: repeat(3, 1fr);
 		align-items: center;
 
 		padding: 0 var(--content-padding);
 
-		background-color: var(--color-background);
-		box-shadow: var(--site-shadow);
+		@mixin background;
+		@mixin box-shadow;
 	}
 </style>

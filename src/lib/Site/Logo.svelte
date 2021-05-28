@@ -4,12 +4,8 @@
 	 */
 </script>
 
-<a href="/">
-	<div
-		id="site-logo"
-		role="img"
-		aria-label="xeho91's logo"
-	/>
+<a href="/" tabindex="-1">
+	<div id="site-logo" role="img" aria-label="xeho91's logo" />
 </a>
 
 <style>
@@ -22,8 +18,7 @@
 	}
 
 	#site-logo {
-		width: 100%;
-		height: 100%;
+		size: 100%;
 
 		background-repeat: no-repeat;
 		background-position: center;

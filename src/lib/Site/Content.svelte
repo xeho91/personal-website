@@ -1,70 +1,53 @@
-<script>
-	import { expandedNavs } from "$data/stores.js";
+<script lang="typescript">
+	import { onMount } from "svelte";
 
-	let lastContentScrollTop = 0;
+	import Alert from "$lib/Alert.svelte";
+	import Map from "$lib/Map.svelte";
 
-	function handleScrolling({ target }) {
-		if (document.body.scrollTop > 0 && lastContentScrollTop > target.scrollTop) {
-			document.body.scrollTo({
-				top: 0,
-				behavior: "smooth",
-			});
-		}
+	let isMapRendered = false;
 
-		lastContentScrollTop = target.scrollTop;
-	}
+	/** Render map if there's a Flag element in the content */
+	onMount(() => {
+		isMapRendered = document.body.querySelector(".flag") ? true : false;
+	});
 </script>
 
-<main
-	id="site-content"
-	on:scroll={handleScrolling}
-	aria-hidden="{$expandedNavs["site-navigation"]}"
-	hidden="{$expandedNavs["site-navigation"]}"
->
+<main id="site-content">
+	<noscript>
+		<Alert type="info" closeable={false}>
+			Without JavaScript enabled, some parts of the website may not work properly.
+		</Alert>
+	</noscript>
+
+	{#if !isMapRendered}
+		<Map />
+	{/if}
+
 	<slot />
 </main>
 
-<style>
+<style lang="postcss">
 	#site-content {
-		--color-background: var(--color-calico);
-		--color-content: var(--color-clairvoyant);
-		--color-link: var(--color-kilamanjaro);
-
-		position: relative;
+		--gap: 1.5em;
 
 		grid-area: content;
 
+		position: relative;
+
+		min-height: calc(100vh - var(--header-height));
+
+		@mixin flex-center-y column {
+			gap: var(--gap);
+			place-content: flex-start;
+		}
+
 		padding: 1em var(--content-padding);
 
-		overflow-x: hidden;
-		overflow-y: scroll;
-
-		color: var(--color-content);
-
-		background-color: var(--color-background);
-		box-shadow: var(--site-shadow);
-
-		& > :global(section) {
-			max-width: 80ch;
-
-			&:last-of-type {
-				margin-bottom: 3em;
-			}
+		& > :global(:last-child) {
+			margin-bottom: 3em;
 		}
-
-		& :global(h1) {
-			text-align: center;
-		}
-
-		/*
-		* TODO: Make headings sticking when scrolling
-		*/
-		/* & :global(:--headings) {
-			position: sticky;
-			top: 0;
-
-			background-color: var(--color-background);
-			box-shadow: 0 0 1em 2em
-		} */
+	}
+	:--no-flex-gap #site-content :--owl {
+		margin-top: var(--gap);
 	}
 </style>
