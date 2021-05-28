@@ -11,7 +11,7 @@
     "url": "https://github.com/xeho91/personal-wesbite/issues"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=14.0.0"
   },
   "type": "module",
   "scripts": {
