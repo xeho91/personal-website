@@ -1,74 +1,331 @@
 @import "@xeho91/colors";
 
 :root {
+	/* Core  */
+	--color-background: var(--color-clairvoyant);
+	--color-foreground: var(--color-terracotta);
+	--color-background-alt: var(--color-mulberry);
+
+	--color_inverse-fg: var(--color-background);
+	--color_inverse-bg: var(--color-foreground);
+
+	/* Feedback */
+	--color_info-fg: var(--color-pampas);
+	--color_info-bg: var(--color-azure);
+
+	--color_success-fg: var(--color-pampas);
+	--color_success-bg: var(--color-woodland);
+
+	--color_warning-fg: var(--color-background);
+	--color_warning-bg: var(--color-pizza);
+
+	--color_error-fg: var(--color-pampas);
+	--color_error-bg: var(--color-cardinal);
+
+	/* States */
+	--color_brighter-fg: var(--color-calico);
+	--color_brighter-bg: var(--color-calico);
+
+	--color_darker-fg: var(--color-kilamanjaro);
+	--color_darker-bg: var(--color-kilamanjaro);
+
+	--color_highlighted-fg: var(--color-punch);
+	--color_highlighted-bg: var(--color-calico);
+
+	--color_required-fg: var(--color-clairvoyant);
+	--color_required-bg: var(--color-calico);
+
+	--color_optional-fg: var(--color-kilamanjaro);
+	--color_optional-bg: hsla(
+		var(--calico_hue),
+		var(--calico_saturation),
+		calc(var(--calico_lightness) - 27%),
+		var(--calico_alpha)
+	);
+
+	--color_inactive-fg: var(--color-pampas);
+	--color_inactive-bg: var(--color-corduroy);
+
+	--color_active-fg: var(--color-clairvoyant);
+	--color_active-bg: var(--color-terracotta);
+
+	--color_disabled-fg: hsla(var(--calico_HSL), 0.77);
+	--color_disabled-bg: var(--color-mahogany);
+
+	--color_enabled-fg: var(--color-kilamanjaro);
+	--color_enabled-bg: var(--color-terracotta);
+
+	--color_checked-fg: var(--color-clairvoyant);
+	--color_checked-bg: var(--color-calico);
+
+	--color_unchecked-fg: hsla(
+		var(--calico_hue),
+		var(--calico_saturation),
+		calc(var(--calico_lightness) + 10%),
+		var(--calico_alpha)
+	);
+	--color_unchecked-bg: var(--color-corduroy);
+
+	--color_focused-bg: var(--color-pampas);
+	--color_focused-fg: var(--color-clairvoyant);
+
+	--color_hovered-fg: var(--color-kilamanjaro);
+	--color_hovered-bg: var(--color-jade);
+
+	--color_action-fg: var(--color-clairvoyant);
+	--color_action-bg: var(--color-calico);
+
+	--color_valid-fg: var(--color-pampas);
+	--color_valid-bg: var(--color-woodland);
+
+	--color_invalid-fg: var(--color-pampas);
+	--color_invalid-bg: var(--color-cardinal);
+
+	/* Other */
 	--gradient:
 		var(--color-clairvoyant),
 		var(--color-mulberry),
 		var(--color-disco),
 		var(--color-punch),
 		var(--color-terracotta);
+
+	--border-width: 2px;
+	--border-style: solid;
+	--color-border: var(--color-calico);
+	--border: var(--border-width) var(--border-style) var(--color-border);
+
+	--outline-width: 2px;
+	--outline-style: solid;
+	--color-outline: var(--color-calico);
+	--outline: var(--outline-width) var(--outline-style) var(--color-outline);
+
+	--shadow-offsetX: 0;
+	--shadow-offsetY: 2px;
+	--shadow-blur: 5px;
+	--shadow-spread: 0px;
+	--color-shadow: hsla(var(--kilamanjaro_HSL), 0.75);
+	--box-shadow:
+		var(--shadow-offsetX)
+		var(--shadow-offsetY)
+		var(--shadow-blur)
+		var(--shadow-spread)
+		var(--color-shadow);
+	--text-shadow:
+		var(--shadow-offsetX)
+		var(--shadow-offsetY)
+		var(--shadow-blur)
+		var(--color-shadow);
 }
 
 body {
-	--color-content: var(--color-terracotta);
-	--color-link: var(--color-calico);
+	@mixin color;
 
-	color: var(--color-content);
-
-	/*
-	 * NOTE:
-	 * Save the performance for unecessary paiting?
-	 */
-	@media screen and (--desktop) {
-		background: linear-gradient(180deg, var(--gradient));
-	}
+	background: linear-gradient(180deg, var(--gradient));
 }
 
-a {
-	color: var(--color-link);
+a:not(.button) {
+	--color-foreground: var(--color_brighter-fg);
+	--color-background: transparent;
+	--color-shadow: var(--color-background);
 
-	text-shadow: none;
+	@mixin color;
+	text-decoration-color: var(--color-foreground);
 
-	&:hover,
+	text-shadow:
+		0 0 0.9px var(--color-shadow),
+		0 0 0.9px var(--color-shadow),
+		0 0 0.9px var(--color-shadow);
+
+	@mixin background;
+
 	&:focus {
-		--color-link: var(--color-content);
-
-		text-decoration-color: var(--color-content);
-
-		text-shadow:
-			0 0 0.9px var(--color-link),
-			0 0 0.9px var(--color-link),
-			0 0 0.9px var(--color-link);
+		--color-foreground: var(--color_focused-bg);
+		--color-shadow: var(--color-foreground);
+	}
+	&:hover {
+		--color-foreground: var(--color_hovered-bg);
+		--color-shadow: var(--color-foreground);
 	}
 }
 
 hr {
-	border: 1px dashed var(--color-content);
+	border: var(--border-width) dashed var(--color-foreground);
 }
 
 blockquote {
 	--color-background: var(--color-terracotta);
 
-	background: var(--color-background);
+	@mixin background;
 }
 
+fieldset {
+	--color-border: var(--color-background);
 
+	@mixin color;
+
+	@mixin background;
+	@mixin border;
+	@mixin box-shadow;
+
+	& > legend {
+		--color-foreground: var(--color_brighter-fg);
+
+		@mixin color;
+
+		@mixin background;
+	}
+}
+
+textarea,
+input:not([type="radio"]):not([type="submit"]) {
+	@mixin color;
+
+	@mixin background;
+	@mixin border;
+	@mixin outline;
+
+	&:required {
+		--color-foreground: var(--color_required-fg);
+		--color-background: var(--color_required-bg);
+	}
+	&:optional {
+		--color-foreground: var(--color_optional-fg);
+		--color-background: var(--color_optional-bg);
+	}
+
+	&:focus {
+		--color-background: var(--color_info-fg);
+		--color-border: var(--color_info-bg);
+		--color-outline: var(--color-border);
+	}
+	&:not(:focus) {
+		--color-border: var(--color-background);
+		--color-outline: var(--color-background);
+	}
+
+	&:valid:not(:placeholder-shown):not(:focus) {
+		--color-border: var(--color_success-bg);
+		--color-outline: var(--color-border);
+	}
+	&:invalid:not(:placeholder-shown):not(:focus) {
+		--color-border: var(--color_error-bg);
+		--color-outline: var(--color-border);
+	}
+}
+
+textarea + label,
+input + label {
+	@mixin color;
+
+	@mixin background;
+}
+
+input[type="radio"] {
+	border: none;
+	outline: none;
+
+	& + label {
+		--color-foreground: var(--color_unchecked-fg);
+		--color-background: var(--color_unchecked-bg);
+		--color-border: var(--color-background);
+		--color-outline: var(--color-border);
+
+		@mixin color;
+
+		@mixin border;
+		@mixin outline;
+	}
+	&:checked + label {
+		--color-foreground: var(--color_checked-fg);
+		--color-background: var(--color_checked-bg);
+	}
+
+	&:focus + label {
+		--color-foreground: var(--color_info-fg);
+		--color-background: var(--color_info-bg);
+	}
+}
+
+form {
+	& input[type="submit"] {
+		@mixin color;
+
+		@mixin background;
+		@mixin border;
+		@mixin box-shadow;
+		outline: none;
+	}
+	&:invalid input[type="submit"] {
+		--color-foreground: var(--color_disabled-fg);
+		--color-background: var(--color_disabled-bg);
+		--color-border: var(--color_disabled-bg);
+		--color-shadow: transparent;
+	}
+	&:valid input[type="submit"] {
+		--color-foreground: var(--color_enabled-fg);
+		--color-background: var(--color_enabled-bg);
+		--color-border: var(--color_success-bg);
+	}
+	&:valid input[type="submit"]:hover,
+	&:valid input[type="submit"]:focus {
+		--color-foreground: var(--color_success-fg);
+		--color-background: var(--color_success-bg);
+	}
+}
+
+button,
+.button {
+	--color-foreground: var(--color_action-fg);
+	--color-background: var(--color_action-bg);
+	--color-border: var(--color-background);
+	--color-outline: var(--color-border);
+
+	@mixin color;
+
+	@mixin background;
+	@mixin border;
+	@mixin box-shadow;
+
+	&:hover {
+		--color-foreground: var(--color_hovered-fg);
+		--color-background: var(--color_hovered-bg);
+	}
+	&:focus {
+		--color-foreground: var(--color_focused-fg);
+		--color-background: var(--color_focused-bg);
+	}
+
+	&:disabled {
+		--color-foreground: var(--color_disabled-fg);
+		--color-background: var(--color_disabled-bg);
+		--color-shadow: transparent;
+	}
+}
+
+/* Feedback */
 .info {
-	--color-background: var(--color-koamaru);
-	--color-content: var(--color-calico);
+	--color-foreground: var(--color_info-fg);
+	--color-background: var(--color_info-bg);
 }
-
-.warning {
-	--color-background: var(--color-pizza);
-	--color-content: var(--color-kilamanjaro);
-}
-
-.error {
-	--color-background: var(--color-mahogany);
-	--color-content: var(--color-calico);
-}
-
 .success {
-	--color-background: var(--color-jade);
-	--color-content: var(--color-kilamanjaro);
+	--color-foreground: var(--color_success-fg);
+	--color-background: var(--color_success-bg);
+}
+.warning {
+	--color-foreground: var(--color_warning-fg);
+	--color-background: var(--color_warning-bg);
+}
+.error {
+	--color-foreground: var(--color_error-fg);
+	--color-background: var(--color_error-bg);
+}
+
+/* States */
+.valid {
+	--color-foreground: var(--color_success-bg);
+	--color-background: var(--color_success-bg);
+}
+.invalid {
+	--color-foreground: var(--color_error-bg);
+	--color-background: var(--color_error-bg);
 }

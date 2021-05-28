@@ -1,5 +1,5 @@
 :root {
-	--font-weight_smaller: 300;
+	--font-weight_lighter: 300;
 	--font-weight_normal: 400;
 	--font-weight_bolder: 700;
 	--font-weight_italic: 350;
@@ -9,29 +9,21 @@
 	--font_sans-serif: "Work Sans", sans-serif;
 	--font_serif: Fraunces, serif;
 
-	--font_min-size: 1em;
+	--font_min-size: 0.9em;
 	--font_scaler: calc(1rem + 3.5vw);
 	--font_incrementer: 1;
-	--font_max-size: 1.15em;
+	--font_max-size: 1em;
 
 	--font-size: clamp(
 		var(--font_min-size),
 		var(--font_scaler),
 		var(--font_max-size)
 	);
-
-	--text-shadow: 0 0 0.25em
-		hsla(
-			var(--terracotta_hue),
-			var(--terracotta_saturation),
-			var(--terracotta_lightness),
-			var(--shadow-opacity)
-		);
 }
 
 /* Monospace */
 @font-face {
-	font-weight: var(--font-weight_smaller) var(--font-weight_bolder);
+	font-weight: var(--font-weight_lighter) var(--font-weight_bolder);
 	font-family: "Fira Code";
 	font-style: normal;
 	src: url("/fonts/monospace/FiraCode.woff2") format("woff2");
@@ -40,14 +32,14 @@
 
 /* Sans-serif */
 @font-face {
-	font-weight: var(--font-weight_smaller) var(--font-weight_bolder);
+	font-weight: var(--font-weight_lighter) var(--font-weight_bolder);
 	font-family: "Work Sans";
 	font-style: normal;
 	src: url("/fonts/sans-serif/WorkSans.woff2") format("woff2");
 	font-display: swap;
 }
 @font-face {
-	font-weight: var(--font-weight_smaller) var(--font-weight_bolder);
+	font-weight: var(--font-weight_lighter) var(--font-weight_bolder);
 	font-family: "Work Sans";
 	font-style: italic;
 	src: url("/fonts/sans-serif/WorkSans.italic.woff2") format("woff2");
@@ -68,11 +60,13 @@ html {
 }
 
 body {
-	font-weight: var(--font-weight_smaller);
+	font-weight: var(--font-weight_lighter);
 	font-size: var(--font-size);
 	font-family: var(--font_sans-serif);
 	font-synthesis: none;
 }
+
+@custom-selector :--headings h1, h2, h3, h4, h5, h6;
 
 :--headings {
 	font-weight: var(--font-weight_heading);
@@ -80,9 +74,14 @@ body {
 	text-shadow: var(--text-shadow);
 }
 
+h1 {
+	margin: 0.67em 0 0.33em;
+
+	text-align: center;
+}
+
 p, li {
 	font-weight: var(--font-weight_normal);
-	font-family: var(--font_sans-serif);
 
 	line-height: 1.5em;
 }
@@ -94,6 +93,10 @@ em {
 
 pre {
 	font-family: var(--font_monospace);
+}
+
+label {
+	font-family: var(--font_serif);
 }
 
 blockquote {
@@ -127,6 +130,11 @@ blockquote {
 	}
 }
 
+strong,
+b {
+	font-weight: var(--font-weight_bolder);
+}
+
 /* NOTE: It cannot be nested */
 @property --offset {
 	syntax: "<length>";
@@ -134,7 +142,7 @@ blockquote {
 	initial-value: 0;
 }
 
-a {
+a:not(.button) {
 	--offset-value: 0.05em;
 
 	@supports not (background:paint(something)) {
@@ -154,3 +162,8 @@ a {
 		--offset-value: var(--offset);
 	}
 }
+
+abbr {
+	text-underline-offset: 0.1em;
+}
+

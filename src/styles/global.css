@@ -1,30 +1,30 @@
 @charset "UTF-8";
 
-@import "$styles/library/custom-media.css";
-@import "$styles/library/custom-selectors.css";
-@import "$styles/library/typography.css";
+@import "normalize.css";
+@import "$styles/library/mixins.css";
 @import "$styles/library/colors.css";
+@import "$styles/library/typography.css";
 @import "$styles/library/miscelaneous.css";
 
-@import "normalize.css";
-
-:root {
-	--golden-ratio: 1.618;
-}
+@custom-media --motion (prefers-reduced-motion: no-preference);
+@custom-media --no-motion (prefers-reduced-motion: reduce);
 
 * {
 	box-sizing: border-box;
 }
 
 html {
-	overflow: hidden;
 	scroll-behavior: smooth;
+
+	overflow: hidden;
 }
 
 html,
 body {
-	width: 100vw;
-	height: 100%;
+	max-width: 100vw;
+	height: 100vh;
+	min-height: -webkit-fill-available;
+	min-height: -moz-available;
 }
 
 body {
@@ -32,7 +32,7 @@ body {
 	scrollbar-width: none;
 
 	&::-webkit-scrollbar {
-		width: 0px;
+		width: 0;
 
 		background-color: transparent;
 	}
