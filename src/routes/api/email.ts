@@ -1,49 +1,41 @@
 import { createTransport } from "nodemailer";
 
+import type { ContactFormData } from "$types/ContactForm";
+import type { FeedbackType } from "$types/Feedback";
 import type { RequestHandler } from "@sveltejs/kit";
 import type { MailOptions } from "nodemailer/lib/smtp-pool";
-
-export type ContactFormData = {
-	firstName: string;
-	email: string;
-	organization: string | null;
-	website: string | null;
-	subject: string | null;
-	message: string;
-	sendACopy: boolean;
-};
 
 const isProduction = process.env["NODE_ENV"] === "production";
 
 /** Object with credentials for communicating with the SMTP mail server */
 const transport = createTransport({
 	host: isProduction
-		? process.env["PROTONMAIL_HOST"]
+		? process.env["SENDGRID_HOST"]
 		: process.env["MAILTRAP_HOST"],
 	port: isProduction
-		? Number(process.env["PROTONMAIL_PORT"])
+		? Number(process.env["SENDGRID_PORT"])
 		: Number(process.env["MAILTRAP_PORT"]),
-	secure: isProduction,
+	secure: true,
 	auth: {
 		user: isProduction
-			? process.env["PROTONMAIL_USER"]
+			? process.env["SENDGRID_USER"]
 			: process.env["MAILTRAP_USER"],
 		pass: isProduction
-			? process.env["PROTONMAIL_PASSWORD"]
+			? process.env["SENDGRID_PASSWORD"]
 			: process.env["MAILTRAP_PASSWORD"],
 	},
 	tls: {
-		rejectUnauthorized: false,
+		rejectUnauthorized: true,
 	},
 });
 
 /** Create an email for nodemailer with passed options and template */
 function createEmail(formData: ContactFormData, referer: string) {
-	const emailTemplate = `
-		<p style="font-style: italic;">A new message from the contact form (on the website ${referer}):<br />
-			<strong>${formData.firstName}</strong> (${formData.email})<br />
+	const template = `
+		<p style="font-style: italic;">A new message from the contact form<br />(on the website ${referer}):<br />
+			From: <strong>${formData.firstName}</strong> (${formData.email})<br />
 			Organization: ${formData.organization || "Not provided"}<br />
-			Website: ${formData.website || "Not provided"}<br />
+			Website: ${formData.website || "Not provided"}
 		</p>
 
 		---
@@ -52,12 +44,14 @@ function createEmail(formData: ContactFormData, referer: string) {
 	`;
 
 	const email: MailOptions = {
-		from: `xeho91's bot <${process.env["SENDER_EMAIL"]}>`,
+		from: `"xeho91.com" <${process.env["SENDER_EMAIL"]}>`,
 		to: process.env["RECIPIENT_EMAIL"],
 		cc: formData.sendACopy ? formData.email : undefined,
 		subject: formData.subject
-			|| `[${process.env["SITE_DOMAIN"]}] A new message from ${formData.firstName}`,
-		html: emailTemplate,
+			|| `[${
+				process.env["SITE_DOMAIN"]
+			}] A new message from ${formData.firstName}`,
+		html: template,
 		replyTo: formData.email,
 	};
 
@@ -85,49 +79,60 @@ function parseValue([key, value]: [string, string]) {
 	return [key, newValue];
 }
 
+/** Create stringified JSON body response */
+function makeResponseBody(
+	type: FeedbackType,
+	text: string,
+	backup?: MailOptions,
+) {
+	return JSON.stringify({ feedback: type, text, backup });
+}
+
 /** Send a POST request to desired email server and return a response to client */
 export const post: RequestHandler = async function({ body, headers }) {
-	const incomingData = Object.entries(JSON.parse(body as string)) as [
-		string,
-		string,
-	][];
-	/** Parsed data, for better developer usability */
+	const incomingData = Object.entries(
+		JSON.parse(body as string),
+	) as [string, string][];
+	/** Parsed data, for better developing usability */
 	const parsedData: ContactFormData = Object.fromEntries(
 		incomingData.map(parseValue),
 	);
+	const email = createEmail(parsedData, headers.referer);
 
 	try {
-		const response = await transport.sendMail(
-			createEmail(parsedData, headers.referer),
-		);
+		const response = await transport.sendMail(email);
 
-		if (response.response.includes("Ok")) {
+		if (response.messageId) {
 			return {
 				status: 200,
 				headers: {
-					"Content-Type": "text/plain; charset=utf-8",
+					"Content-Type": "application/json; charset=utf-8",
 				},
-				body: "Message sent succesfully!",
+				body: makeResponseBody(
+					"success",
+					"Message sent succesfully!",
+				),
 			};
 		} else {
 			return {
 				status: 400,
 				headers: {
-					"Content-Type": "text/plain; charset=utf-8",
+					"Content-Type": "application/json; charset=utf-8",
 				},
-				body: response.response.toString(),
+				body: makeResponseBody(
+					"error",
+					"Something went wrong with email server configuration.",
+					email
+				),
 			};
 		}
 	} catch (error) {
-		// eslint-disable-next-line no-console
-		console.error(error);
-
 		return {
 			status: 500,
 			headers: {
-				"Content-Type": "text/plain; charset=utf-8",
+				"Content-Type": "application/json; charset-utf-8",
 			},
-			body: body.toString(),
+			body: makeResponseBody("error", error.toString(), email),
 		};
 	}
 };
