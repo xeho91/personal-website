@@ -29,6 +29,8 @@
 		border-radius: 1em;
 		@mixin box-shadow;
 
+		word-break: break-word;
+
 
 		&:first-of-type {
 			margin-top: 0;

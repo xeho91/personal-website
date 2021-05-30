@@ -85,18 +85,29 @@
 
 <style lang="postcss">
 	#world-map {
+		--color-background: hsla(var(--kilamanjaro_HSL), 0.75);
+
 		@mixin top fixed {
 			left: 0;
 			z-index: 2;
 		}
 
-		@mixin flex-center column;
+		flex-direction: column;
+		place-items: center;
+		place-content: center;
 
 		size: 100%;
 
 		padding: 5%;
 
-		background-color: hsla(var(--kilamanjaro_HSL), 0.75);
+		@mixin background;
+
+		&[aria-hidden="false"] {
+			display: flex;
+		}
+		&[aria-hidden="true"] {
+			display: none;
+		}
 
 		& > .tip {
 			--color-foreground: var(--color-pampas);
@@ -158,9 +169,5 @@
 		50% {
 			stroke-width: 2em;
 		}
-	}
-
-	#world-map[aria-hidden="true"] {
-		display: none;
 	}
 </style>
