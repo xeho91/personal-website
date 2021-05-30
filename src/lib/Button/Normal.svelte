@@ -24,7 +24,7 @@
 	</button>
 {:else if type === "link"}
 	<a {id} href={$$props.href || "#"} class="button" {title}>
-		<Icon icon={iconLink} inline={true} />
+		<Icon icon={icon ? icon : iconLink} inline={true} />
 		<span class="label">{label}</span>
 	</a>
 {/if}

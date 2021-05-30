@@ -12,32 +12,35 @@
 	export let label: string;
 	export let title: string;
 	export let label_position: LabelPosition = "right";
+	export let size = "2.5em";
 
 	let id = $$props.id || `button_${Case.kebab(label)}`;
+
+	let buttonSize = `--button-size: ${size}`;
 </script>
 
 {#if type === "button"}
-	<button {id} {title} on:click>
+	<button {id} {title} on:click style={buttonSize}>
 		{#if icon}
 			<Icon class="icon" {icon} />
 		{/if}
 		<span class="label {label_position}">{label}</span>
 	</button>
 {:else if type === "link"}
-	<a href={$$props.href} {id} {title} class="button">
+	<a href={$$props.href} {id} {title} class="button" style={buttonSize}>
 		{#if icon}
 			<Icon class="icon" {icon} />
 		{/if}
-		<span class="label {label_position}">{label}</span>
+		<span class="label {label_position}" style={buttonSize}>{label}</span>
 	</a>
 {/if}
 
 <style lang="postcss">
 	button,
 	.button {
-		--button-size: 2.5em;
-
 		position: relative;
+
+		@mixin flex-center row;
 
 		@mixin circle var(--button-size);
 		@mixin color;
