@@ -25,6 +25,15 @@
 		var(--shadow-spread)
 		var(--color-shadow);
 }
+@define-mixin box-shadow-inset {
+	box-shadow:
+		inset
+		var(--shadow-offsetX)
+		var(--shadow-offsetY)
+		var(--shadow-blur)
+		var(--shadow-spread)
+		var(--color-shadow);
+}
 @define-mixin text-shadow {
 	text-shadow:
 		var(--shadow-offsetX)
