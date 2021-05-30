@@ -1,12 +1,15 @@
 import path from "path";
-import adapter from "@sveltejs/adapter-vercel";
+import adapterVercel from "@sveltejs/adapter-vercel";
+import adapterStatic from "@sveltejs/adapter-static";
 import preprocess from "svelte-preprocess";
 import { mdsvex } from "mdsvex";
 import mdsvexConfig from "./mdsvex.config.cjs";
 import postcssConfig from "./postcss.config.cjs";
 import { config as dotenvConfig } from "dotenv";
 
-if (process.env.NODE_ENV === "development") {
+const isProduction = process.env.NODE_ENV === "production";
+
+if (!isProduction) {
 	dotenvConfig();
 }
 
@@ -30,7 +33,7 @@ const svelteConfig = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: "#svelte",
-		adapter: adapter(),
+		adapter: isProduction ? adapterVercel() : adapterStatic(),
 		prerender: {
 			force: true,
 		},
