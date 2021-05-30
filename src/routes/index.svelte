@@ -4,7 +4,6 @@
 	import Message from "$lib/Message.svelte";
 	import Profile from "$lib/Profile.svelte";
 	import Button from "$lib/Button/Normal.svelte";
-	import Alert from "$lib/Alert.svelte";
 
 	import flagPoland from "@iconify-icons/twemoji/flag-for-poland.js";
 	import flagTaiwan from "@iconify-icons/twemoji/flag-for-taiwan.js";
@@ -12,11 +11,6 @@
 
 <article>
 	<h1>Welcome to my site on&nbsp;the&nbsp;Internet!</h1>
-
-	<Alert type="info">Example for info alert</Alert>
-	<Alert type="error">Example for error alert</Alert>
-	<Alert type="warning">Example for warning alert</Alert>
-	<Alert type="success">Example for success alert</Alert>
 
 	<Profile>
 		<Message>
@@ -61,7 +55,13 @@
 			Got something for me? Please contact me by sending a message,
 			or reach ouch through social media.
 
-			<Button slot="actions" type="link" title="Go to my contact subpgage" label="Contact me" href="/contact" />
+			<Button
+				slot="actions"
+				type="link"
+				title="Go to my contact subpgage"
+				label="Contact me"
+				href="/contact"
+			/>
 		</Message>
 	</Profile>
 </article>
