@@ -1,5 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "strict": true,
     "module": "ESNext",
@@ -24,7 +25,9 @@
       "$styles/*": ["src/styles/*"],
       "$types/*": ["src/types/*"]
     },
-    "types": ["node", "svelte"]
+    "types": ["node", "svelte"],
+    "skipLibCheck": true,
+    "noEmit": true
   },
   "include": [
     "src/**/*.d.ts",
