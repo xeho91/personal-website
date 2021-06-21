@@ -10,9 +10,7 @@ server.key
 
 # SvelteKit output (https://kit.svelte.dev/)
 .svelte-kit/
-
-# Build output
-build/
+.vercel_build_output/
 
 # Ignore (and don't ignore) for dotenv.
 .env
