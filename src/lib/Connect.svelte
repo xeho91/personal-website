@@ -1,11 +1,11 @@
 <script lang="typescript">
-	import CircleButton from "$lib/Button/Circle.svelte";
+	import { Circle as CircleButton } from "$lib/Buttons";
 
 	import iconNetwork from "@iconify-icons/carbon/network-4.js";
 	import iconClose from "@iconify-icons/carbon/close.js";
 
-	import { CONNECT_PROFILES } from "$data/site";
-	import { expandedElements } from "$data/stores";
+	import { CONNECT_PROFILES } from "$config";
+	import { expandedElements } from "$stores";
 
 	import { navigating } from "$app/stores";
 

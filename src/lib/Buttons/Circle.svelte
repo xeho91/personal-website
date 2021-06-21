@@ -2,7 +2,7 @@
 	import Case from "case";
 	import Icon from "@iconify/svelte";
 
-	import type { IconifyIcon } from "$types/IconifyIcon";
+	import type { IconifyIcon } from "$types";
 
 	type ButtonType = "link" | "button";
 	type LabelPosition = "right" | "left" | "hidden";

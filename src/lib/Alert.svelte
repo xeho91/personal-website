@@ -1,15 +1,15 @@
 <script lang="typescript">
 	import Icon from "@iconify/svelte";
-	import getFeedbackIcon from "$scripts/getFeedbackIcon";
+	import { getFeedbackIcon } from "$utils";
 
-	import ButtonClose from "$lib/Button/Close.svelte";
+	import { Close as ButtonClose } from "$lib/Buttons";
 
 	import { onMount } from "svelte";
 
 	import { fade } from "svelte/transition";
 	import { sineInOut } from "svelte/easing";
 
-	import type { FeedbackType } from "$types/Feedback";
+	import type { FeedbackType } from "$types";
 
 	export let type: FeedbackType;
 	export let heading = "";

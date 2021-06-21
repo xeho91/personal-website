@@ -2,8 +2,9 @@
 	import Case from "case";
 
 	import Icon from "@iconify/svelte";
-	import type { IconifyIcon } from "$types/IconifyIcon";
 	import iconLink from "@iconify-icons/carbon/link.js";
+
+	import type { IconifyIcon } from "$types";
 
 	type ButtonType = "button" | "link";
 

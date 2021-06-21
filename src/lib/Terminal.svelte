@@ -1,9 +1,9 @@
 <script lang="typescript">
+	import Case from "case";
+
+	import { Copy as CopyButton } from "$lib/Buttons";
 	import Icon from "@iconify/svelte";
 	import iconTerminal from "@iconify-icons/carbon/terminal.js";
-
-	import CopyButton from "$lib/Button/Copy.svelte";
-import Case from "case";
 
 	export let title = "Terminal";
 

@@ -4,6 +4,7 @@
 
 <h1>404</h1>
 <p>The page you are trying to visit doesn't exist.</p>
+<a href="/">Return to home page</a>
 
 <style lang="postcss">
 	h1 {

@@ -1,38 +1,28 @@
-<script>
-	/*
-	 * TODO: Improve accessibility on logo repo, its missing title and desc
-	 */
+<script lang="typescript">
+	import { Logo } from "@xeho91/assets";
 </script>
 
-<a href="/" tabindex="-1">
-	<div id="site-logo" role="img" aria-label="xeho91's logo" />
+<a id="site-logo" href="/" tabindex="-1">
+	<Logo background="none" animation={{ duration: 3000 }} />
 </a>
 
-<style>
+<style lang="postcss">
 	a {
-		grid-area: logo;
-		justify-self: center;
-
-		width: calc(var(--header-height) * var(--golden-ratio));
-		height: var(--header-height);
+		/* width: calc(var(--header-height) * var(--golden-ratio)); */
+		/* height: var(--header-height); */
 	}
 
 	#site-logo {
-		size: 100%;
+		grid-area: logo;
 
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: auto 100%;
+		@mixin flex-center row;
+
+		height: 100%;
 
 		cursor: pointer;
 
-		pointer-events: none;
-
-		@media (--motion) {
-			background-image: url("/images/logo.animated.svg");
-		}
-		@media (--no-motion) {
-			background-image: url("/images/logo.svg");
+		& > :global(svg) {
+			height: 100%;
 		}
 	}
 </style>

@@ -8,7 +8,7 @@
 	import Case from "case";
 
 	// https://github.com/nenadpnc/cl-editor
-	import Editor from "cl-editor/src/Editor.svelte";
+	import Editor from "cl-editor";
 
 	import Icon from "@iconify/svelte";
 	import iconSucccess from "@iconify-icons/carbon/checkmark-filled.js";

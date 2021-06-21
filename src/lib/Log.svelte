@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import type { FeedbackType } from "$types/Feedback";
+	import type { FeedbackType } from "$types";
 
 	export let type: FeedbackType = "normal";
 </script>

@@ -1,10 +1,10 @@
 <script>
-	import SiteLogo from "$lib/Site/Logo.svelte";
-	import Connect from "$lib/Connect.svelte";
+	import { Connect } from "$lib";
+	import Logo from "./Logo.svelte";
 </script>
 
 <header id="site-header">
-	<SiteLogo />
+	<Logo />
 	<Connect />
 </header>
 

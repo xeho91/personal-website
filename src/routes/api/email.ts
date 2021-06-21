@@ -1,11 +1,10 @@
 import { createTransport } from "nodemailer";
 
-import type { ContactFormData } from "$types/ContactForm";
-import type { FeedbackType } from "$types/Feedback";
+import type { ContactFormData, FeedbackType } from "$types";
 import type { RequestHandler } from "@sveltejs/kit";
 import type { MailOptions } from "nodemailer/lib/smtp-pool";
 
-const isProduction = process.env["NODE_ENV"] === "production";
+const isProduction = process.env["NODE_ENV"] === "development";
 
 /** Object with credentials for communicating with the SMTP mail server */
 const transport = createTransport({
@@ -87,6 +86,14 @@ function makeResponseBody(
 ) {
 	return JSON.stringify({ feedback: type, text, backup });
 }
+
+/*
+ * NOTE: I can't use native Response API here,
+ * because SvelteKit endpoints are different.
+ * Sources:
+ * - https://developer.mozilla.org/en-US/docs/Web/API/Response/Response
+ * - https://kit.svelte.dev/docs#routing-endpoints
+ */
 
 /** Send a POST request to desired email server and return a response to client */
 export const post: RequestHandler = async function({ body, headers }) {

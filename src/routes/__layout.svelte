@@ -1,10 +1,8 @@
 <script lang="typescript">
 	import { onMount } from "svelte";
-	import checkFlexGap from "$scripts/checkFlexGap";
+	import { checkFlexGap } from "$utils";
 
-	import SiteHeader from "$lib/Site/Header.svelte";
-	import SiteContent from "$lib/Site/Content.svelte";
-	import SiteFooter from "$lib/Site/Footer.svelte";
+	import { Header, Content, Footer } from "$lib/Site";
 
 	onMount(() => {
 		if (!checkFlexGap()) {
@@ -13,9 +11,16 @@
 	});
 </script>
 
-<SiteHeader />
-<SiteContent><slot /></SiteContent>
-<SiteFooter />
+<svelte:head>
+	<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+	<link rel="preload" as="font" type="font/woff2" href="/fonts/serif/Fraunces.woff2" crossorigin="anonymous">
+	<link rel="preload" as="font" type="font/woff2" href="/fonts/sans-serif/WorkSans.woff2" crossorigin="anonymous">
+</svelte:head>
+
+<Header />
+<Content><slot /></Content>
+<Footer />
 
 <style lang="postcss">
 	@import "$styles/global.css";
@@ -32,7 +37,7 @@
 	@custom-media --motion (prefers-reduced-motion: no-preference);
 	@custom-media --no-motion (prefers-reduced-motion: reduce);
 
-	/* FIXME: Remove it when Safari starts to support Flex gap */
+	/* FIXME: Remove it when Safari starts to support Flex gap on older browsers */
 	@custom-selector :--no-flex-gap :global(.no-flex-gap);
 	@custom-selector :--owl :global(> * + *);
 

@@ -1,24 +1,25 @@
 <script lang="typescript">
 	// https://github.com/html-to-text/node-html-to-text
 	import { htmlToText } from "html-to-text";
-
-	import ContactForm from "$lib/ContactForm.svelte";
-	import Profile from "$lib/Profile.svelte";
-	import Message from "$lib/Message.svelte";
-	import Terminal from "$lib/Terminal.svelte";
-	import Log from "$lib/Log.svelte";
-	import Button from "$lib/Button/Normal.svelte";
-
-	import type { FeedbackType } from "$types/Feedback";
-	import type { ContactFormData } from "$types/ContactForm";
-	import type { MailOptions } from "nodemailer/lib/stream-transport";
-
 	import iconEmail from "@iconify-icons/carbon/email-new.js";
+
+	import {
+		Metatags,
+		ContactForm,
+		Profile,
+		Message,
+		Terminal,
+		Log,
+	} from "$lib";
+	import { Normal as Button } from "$lib/Buttons";
+
+	import type { FeedbackType, ContactFormData } from "$types";
+	import type { MailOptions } from "nodemailer/lib/stream-transport";
 
 	interface ResponseData {
 		feedback: FeedbackType;
 		text: string;
-		backup: MailOptions,
+		backup: MailOptions;
 	}
 
 	async function makeRequest(data: ContactFormData) {
@@ -57,6 +58,11 @@
 		request = makeRequest(wrappedData as ContactFormData);
 	}
 </script>
+
+<Metatags
+	title="Contact me"
+	description="This is a way to get in touch with me. Use my contact form or one of provided online platforms or social media."
+/>
 
 <h1>Get in touch with&nbsp;me</h1>
 
@@ -100,15 +106,12 @@
 					I appreciate your patience in advance. 🙏
 				</Message>
 			{:else}
-				<Message>
-					Something went wrong! 😞
-				</Message>
+				<Message>Something went wrong! 😞</Message>
 				<Message>
 					I didn't intend to waste your time, so you can
 					<strong>click the button link to send email</strong>
-					with your default email program.
-					It will have the content of the message filled from the
-					form in advance.
+					with your default email program. It will have the content of
+					the message filled from the form in advance.
 					<Button
 						slot="actions"
 						type="link"

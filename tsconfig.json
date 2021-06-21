@@ -2,37 +2,36 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
-    "strict": true,
+    "noEmit": true,
+
     "module": "ESNext",
     "target": "ESNext",
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext", "DOM"],
     "importHelpers": true,
+
     "downlevelIteration": true,
-    "baseUrl": ".",
     "allowJs": true,
     "checkJs": true,
+    "strict": true,
+    "skipLibCheck": true,
+
+    "baseUrl": ".",
     "paths": {
       "$app/*": [
         ".svelte-kit/dev/runtime/app/*",
         ".svelte-kit/build/runtime/app/*"
       ],
-      "$data/*": ["src/data/*"],
+      "$config": ["./site.config.ts"],
+      "$lib": ["src/lib/index.ts"],
       "$lib/*": ["src/lib/*"],
-      "$scripts/*": ["src/scripts/*"],
       "$styles/*": ["src/styles/*"],
-      "$types/*": ["src/types/*"]
+      "$stores": ["src/stores.ts"],
+      "$utils": ["src/utils/index.ts"],
+      "$types": ["src/typings/index.ts"]
     },
-    "types": ["node", "svelte"],
-    "skipLibCheck": true,
-    "noEmit": true
+
+    "types": ["node", "svelte"]
   },
-  "include": [
-    "src/**/*.d.ts",
-    "src/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.svelte"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

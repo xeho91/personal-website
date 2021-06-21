@@ -1,8 +1,8 @@
 <script lang="typescript">
 	import InlineSVG from "svelte-inline-svg";
 
-	import { map } from "$data/stores";
 	import { beforeUpdate } from "svelte";
+	import { map } from "$stores";
 
 	/** Hide map in the DOM, if click happens outside map element */
 	function handleClick({ target }: MouseEvent) {

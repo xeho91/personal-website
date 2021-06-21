@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import { SITE_METADATA } from "$data/site";
+	import { SITE_METADATA } from "$config";
 
 	import Icon from "@iconify/svelte";
 	import iconGitHub from "@iconify-icons/simple-icons/github.js";

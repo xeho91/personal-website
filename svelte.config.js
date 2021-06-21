@@ -1,11 +1,12 @@
-import path from "path";
-import adapterVercel from "@sveltejs/adapter-vercel";
 import adapterStatic from "@sveltejs/adapter-static";
-import preprocess from "svelte-preprocess";
+import adapterVercel from "@sveltejs/adapter-vercel";
+import { config as dotenvConfig } from "dotenv";
 import { mdsvex } from "mdsvex";
+import { resolve } from "path";
+import preprocess from "svelte-preprocess";
+import tsconfigPaths from "vite-tsconfig-paths";
 import mdsvexConfig from "./mdsvex.config.cjs";
 import postcssConfig from "./postcss.config.cjs";
-import { config as dotenvConfig } from "dotenv";
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -34,17 +35,30 @@ const svelteConfig = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: "#svelte",
 		adapter: isProduction ? adapterVercel() : adapterStatic(),
+		hydrate: true,
 		prerender: {
+			crawl: true,
 			force: true,
+			enabled: true,
 		},
+		ssr: true,
 
 		vite: {
+			plugins: [
+				tsconfigPaths({
+					extensions: [
+						".ts",
+						".js",
+						".svelte",
+						".json",
+						".css",
+						mdsvexConfig.svelte,
+					],
+				}),
+			],
 			resolve: {
 				alias: {
-					$data: path.resolve("src/data"),
-					$scripts: path.resolve("src/scripts"),
-					$styles: path.resolve("src/styles"),
-					$types: path.resolve("src/types"),
+					$styles: resolve("src/styles"),
 				},
 			},
 

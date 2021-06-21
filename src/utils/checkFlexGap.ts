@@ -1,4 +1,4 @@
-export default function checkFlexGap(): boolean {
+export function checkFlexGap(): boolean {
 	// create flex container with row-gap set
 	const  flex = document.createElement("div");
 

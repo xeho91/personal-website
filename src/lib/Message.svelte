@@ -1,4 +1,5 @@
 <script lang="typescript">
+	//
 </script>
 
 <div class="message">

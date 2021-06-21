@@ -1,12 +1,12 @@
 <script lang="typescript">
-	import type { Notification } from "$types/Notification";
-
 	import Icon from "@iconify/svelte";
-	import getFeedbackIcon from "$scripts/getFeedbackIcon";
-	import ButtonClose from "./Button/Close.svelte";
+	import { Close as ButtonClose } from "$lib/Buttons";
 
 	import { fade } from "svelte/transition";
 	import { sineInOut } from "svelte/easing";
+	import { getFeedbackIcon } from "$utils";
+
+	import type { Notification } from "$types";
 
 	export let notification: Notification;
 	export let onRemove: null | (() => void) = null;

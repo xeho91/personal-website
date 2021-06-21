@@ -2,8 +2,8 @@
 	// https://github.com/iconify/iconify/tree/master/packages/svelte
 	import Icon from "@iconify/svelte";
 
-	import { map } from "$data/stores";
-	import type { IconifyIcon } from "$types/IconifyIcon";
+	import { map } from "$stores";
+	import type { IconifyIcon } from "$types";
 
 	export let icon: IconifyIcon;
 	export let name: string;
