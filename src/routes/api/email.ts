@@ -4,24 +4,15 @@ import type { ContactFormData, FeedbackType } from "$types";
 import type { RequestHandler } from "@sveltejs/kit";
 import type { MailOptions } from "nodemailer/lib/smtp-pool";
 
-const isProduction = process.env["NODE_ENV"] === "development";
 
 /** Object with credentials for communicating with the SMTP mail server */
 const transport = createTransport({
-	host: isProduction
-		? process.env["SENDGRID_HOST"]
-		: process.env["MAILTRAP_HOST"],
-	port: isProduction
-		? Number(process.env["SENDGRID_PORT"])
-		: Number(process.env["MAILTRAP_PORT"]),
+	host: process.env["NODEMAILER_HOST"],
+	port: Number(process.env["NODEMAILER_PORT"]),
 	secure: true,
 	auth: {
-		user: isProduction
-			? process.env["SENDGRID_USER"]
-			: process.env["MAILTRAP_USER"],
-		pass: isProduction
-			? process.env["SENDGRID_PASSWORD"]
-			: process.env["MAILTRAP_PASSWORD"],
+		user: process.env["NODEMAILER_USER"],
+		pass: process.env["NODEMAILER_PASSWORD"],
 	},
 	tls: {
 		rejectUnauthorized: true,
