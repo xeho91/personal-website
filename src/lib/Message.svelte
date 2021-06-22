@@ -70,7 +70,4 @@
 			@mixin flex-center column;
 		}
 	}
-	:--no-flex-gap .message :--owl {
-		margin-top: var(--gap);
-	}
 </style>

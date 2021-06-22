@@ -39,9 +39,6 @@
 
 		max-width: 80ch;
 	}
-	:--no-flex-gap .messages-wrapper :--owl {
-		margin-top: var(--gap);
-	}
 
 	.profile-flipper {
 		--profile-size: min(10em, 30vw);

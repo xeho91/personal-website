@@ -1,5 +1,6 @@
 # https://github.com/browserslist/browserslist
-
 defaults
-last 3 major versions and supports es6-module
+last 1 version
 not dead
+not IE 11
+not op_mini all

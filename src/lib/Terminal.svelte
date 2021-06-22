@@ -78,7 +78,4 @@
 		@mixin box-shadow-inset;
 		@mixin background;
 	}
-	:--no-flex-gap .message :--owl {
-		margin-left: var(--gap);
-	}
 </style>

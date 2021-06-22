@@ -1,14 +1,5 @@
 <script lang="typescript">
-	import { onMount } from "svelte";
-	import { checkFlexGap } from "$utils";
-
 	import { Header, Content, Footer } from "$lib/Site";
-
-	onMount(() => {
-		if (!checkFlexGap()) {
-			document.body.classList.add("no-flex-gap");
-		}
-	});
 </script>
 
 <svelte:head>
@@ -37,10 +28,6 @@
 	*/
 	@custom-media --motion (prefers-reduced-motion: no-preference);
 	@custom-media --no-motion (prefers-reduced-motion: reduce);
-
-	/* FIXME: Remove it when Safari starts to support Flex gap on older browsers */
-	@custom-selector :--no-flex-gap :global(.no-flex-gap);
-	@custom-selector :--owl :global(> * + *);
 
 	:global(#svelte) {
 		--header-height: 5em;

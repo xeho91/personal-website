@@ -36,17 +36,11 @@
 
 		font-family: var(--font_serif);
 	}
-	:--no-flex-gap .radio-field :--owl {
-		margin-left: var(--gap);
-	}
 
 	.radio-values {
 		@mixin flex row {
 			gap: var(--border-width);
 		}
-	}
-	:--no-flex-gap .radio-values :--owl {
-		margin-left: var(--border-width);
 	}
 
 	.radio {

@@ -43,7 +43,4 @@
 			--color-border: var(--color-background);
 		}
 	}
-	:--no-flex-gap fieldset :--owl {
-		margin-top: var(--gap);
-	}
 </style>

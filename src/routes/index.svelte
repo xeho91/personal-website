@@ -88,9 +88,6 @@
 			gap: var(--gap);
 		}
 	}
-	:--no-flex-gap article :--owl {
-		margin-top: var(--gap);
-	}
 
 	:global(#button_contact-me) {
 		justify-self: center;

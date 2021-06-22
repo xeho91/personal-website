@@ -107,7 +107,4 @@
 		width: 80ch;
 		max-width: 100%;
 	}
-	:--no-flex-gap form :--owl {
-		margin-top: var(--gap);
-	}
 </style>

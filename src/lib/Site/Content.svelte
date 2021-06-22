@@ -54,7 +54,4 @@
 			margin-bottom: 3em;
 		}
 	}
-	:--no-flex-gap #site-content :--owl {
-		margin-top: var(--gap);
-	}
 </style>
