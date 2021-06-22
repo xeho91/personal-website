@@ -12,10 +12,11 @@
 </script>
 
 <svelte:head>
+	<!-- Favicon -->
 	<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
-	<link rel="preload" as="font" type="font/woff2" href="/fonts/serif/Fraunces.woff2" crossorigin="anonymous">
-	<link rel="preload" as="font" type="font/woff2" href="/fonts/sans-serif/WorkSans.woff2" crossorigin="anonymous">
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
 </svelte:head>
 
 <Header />
