@@ -34,7 +34,7 @@
 			gap: var(--gap);
 		}
 
-		font-family: var(--font_serif);
+		font-family: var(--serif);
 	}
 
 	.radio-values {
@@ -68,7 +68,7 @@
 		height: var(--radio-height);
 		padding: 0 var(--radio-padding);
 
-		font-family: var(--font_sans-serif);
+		font-family: var(--sans-serif);
 
 		@media (--motion) {
 			transition: all var(--transition);
@@ -93,7 +93,7 @@
 		}
 	}
 	input:checked + label {
-		font-weight: var(--font-weight_bolder);
+		font-weight: var(--sans-serif_bolder);
 
 		&::before {
 			opacity: 1;

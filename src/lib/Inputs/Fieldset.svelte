@@ -31,7 +31,7 @@
 			--color-border: var(--color_highlighted-bg);
 
 			& legend {
-				font-weight: bolder;
+				font-weight: var(--sans-serif_bolder);
 
 				border-top: var(--border);
 				border-right: var(--border);

@@ -31,7 +31,7 @@ form {
 
 			&:focus,
 			&:hover {
-				font-weight: var(--font-weight_normal);
+				font-weight: var(--sans-serif_bolder);
 			}
 		}
 	}
@@ -55,7 +55,7 @@ button,
 	}
 
 	& > .label {
-		font-weight: var(--font-weight_normal);
+		font-weight: var(--sans-serif_normal);
 
 		@media (--motion) {
 			transition: all var(--transition);
@@ -64,7 +64,7 @@ button,
 	&:focus,
 	&:hover {
 		& > .label {
-			font-weight: var(--font-weight_bolder);
+			font-weight: var(--sans-serif_bolder);
 		}
 	}
 

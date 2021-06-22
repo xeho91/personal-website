@@ -93,7 +93,7 @@
 					width: max(22ch, 100%);
 					padding: 0.5em;
 
-					font-weight: small;
+					font-weight: var(--sans-serif_lighter);
 					font-size: smaller;
 					white-space: break-spaces;
 					text-shadow: none;

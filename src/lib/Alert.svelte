@@ -94,7 +94,7 @@
 	}
 
 	.title {
-		font-weight: var(--font-weight_bolder);
+		font-weight: var(--sans-serif_bolder);
 		font-size: larger;
 
 		& > .label {

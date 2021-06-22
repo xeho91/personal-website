@@ -258,7 +258,7 @@
 			padding: calc(var(--textarea-padding) / 2) var(--textarea-padding);
 
 			@mixin color;
-			font-family: var(--font_sans-serif);
+			font-family: var(--sans-serif);
 			font-style: italic;
 
 			@mixin background;

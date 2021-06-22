@@ -1,18 +1,28 @@
 :root {
-	--font-weight_lighter: 300;
-	--font-weight_normal: 400;
-	--font-weight_bolder: 700;
-	--font-weight_italic: 350;
-	--font-weight_heading: 550;
+	/* Names */
+	--monospace_name: "JetBrains Mono";
+	--sans-serif_name: "Work Sans";
+	--serif_name: "Fraunces";
 
-	--font-name_monospace: "JetBrains Mono";
-	--font-name_sans-serif: "Work Sans";
-	--font-name_serif: "Fraunces";
+	/* Weights */
+	/* --monospace_lighter: 300; */
+	--sans-serif_lighter: 300;
+	/* --serif_lighter: 300; */
 
-	--font_monospace: var(--font-name_monospace), monospace;
-	--font_sans-serif: var(--font-name_sans-serif), sans-serif;
-	--font_serif: var(--font-name_serif), serif;
+	--monospace_normal: 400;
+	--sans-serif_normal: 400;
+	/* --serif_normal: 400; */
 
+	--monospace_bolder: 700;
+	--sans-serif_bolder: 700;
+	--serif_bolder: 500;
+
+	/* Font-family */
+	--monospace: var(--monospace_name), monospace;
+	--sans-serif: var(--sans-serif_name), sans-serif;
+	--serif: var(--serif_name), serif;
+
+	/* Size */
 	--font_min-size: 0.9em;
 	--font_scaler: calc(1rem + 3.5vw);
 	--font_incrementer: 1;
@@ -27,39 +37,35 @@
 
 /* Monospace */
 @font-face {
-	font-weight: var(--font-weight_lighter) var(--font-weight_bolder);
-	font-family: var(--font-name_monospace);
+	font-weight: var(--monospace_normal) var(--monospace_bolder);
+	font-family: var(--monospace_name);
 	font-style: normal;
+	src: url("/fonts/monospace/JetBrainsMono-subset.woff2") format("woff2");
 	font-display: swap;
-	src: url("https://fonts.gstatic.com/s/jetbrainsmono/v6/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxTOlOV.woff2") format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* Sans-serif */
 @font-face {
-	font-weight: var(--font-weight_lighter) var(--font-weight_bolder);
-	font-family: var(--font-name_sans-serif);
+	font-weight: var(--sans-serif_lighter) var(--sans-serif_normal) var(--sans-serif_bolder);
+	font-family: var(--sans-serif_name);
 	font-style: normal;
-	src: url("https://fonts.gstatic.com/s/worksans/v9/QGY9z_wNahGAdqQ43Rh_ebrnlwyYfEPxPoGU3ms5pIfY.woff2") format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url("/fonts/sans-serif/WorkSans-subset.woff2") format("woff2");
 	font-display: swap;
 }
 @font-face {
-	font-weight: var(--font-weight_lighter) var(--font-weight_bolder);
-	font-family: var(--font-name_sans-serif);
+	font-weight: var(--sans-serif_lighter) var(--sans-serif_bolder);
+	font-family: var(--sans-serif_name);
 	font-style: italic;
-	src: url("https://fonts.gstatic.com/s/worksans/v9/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXBi8Jpg.woff2") format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url("/fonts/sans-serif/WorkSans.italic-subset.woff2") format("woff2");
 	font-display: swap;
 }
 
 /* Serif */
 @font-face {
-	font-weight: var(--font-weight_heading);
-	font-family: var(--font-name_serif);
+	font-weight: var(--serif_bolder);
+	font-family: var(--serif_name);
 	font-style: normal;
-	src: url("https://fonts.gstatic.com/s/fraunces/v10/6NUh8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nib1603gg7S2nfgRYIctxuTCf7T.woff2") format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url("/fonts/serif/Fraunces-subset.woff2") format("woff2");
 	font-display: swap;
 }
 
@@ -68,17 +74,17 @@ html {
 }
 
 body {
-	font-weight: var(--font-weight_lighter);
+	font-weight: var(--sans-serif_normal);
 	font-size: var(--font-size);
-	font-family: var(--font_sans-serif);
+	font-family: var(--sans-serif);
 	font-synthesis: none;
 }
 
 @custom-selector :--headings h1, h2, h3, h4, h5, h6;
 
 :--headings {
-	font-weight: var(--font-weight_heading);
-	font-family: var(--font_serif);
+	font-weight: var(--serif_bolder);
+	font-family: var(--serif);
 	text-shadow: var(--text-shadow);
 }
 
@@ -89,22 +95,22 @@ h1 {
 }
 
 p, li {
-	font-weight: var(--font-weight_normal);
+	font-weight: var(--sans-serif_normal);
 
 	line-height: 1.5em;
 }
 
 em {
-	font-weight: var(--font-weight_italic);
+	font-weight: var(--sans-serif_lighter);
 	font-style: italic;
 }
 
 pre {
-	font-family: var(--font_monospace);
+	font-family: var(--monospace);
 }
 
 label {
-	font-family: var(--font_serif);
+	font-family: var(--serif);
 }
 
 blockquote {
@@ -140,7 +146,7 @@ blockquote {
 
 strong,
 b {
-	font-weight: var(--font-weight_bolder);
+	font-weight: var(--sans-serif_bolder);
 }
 
 /* NOTE: It cannot be nested */
@@ -174,7 +180,3 @@ a:not(.button) {
 abbr {
 	text-underline-offset: 0.1em;
 }
-
-
-
-

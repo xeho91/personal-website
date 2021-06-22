@@ -128,7 +128,7 @@
 			padding: calc(var(--input-padding) / 2) var(--input-padding);
 
 			@mixin color;
-			font-family: var(--font_sans-serif);
+			font-family: var(--sans-serif);
 			font-style: italic;
 
 			@mixin background;

@@ -84,7 +84,7 @@
 			padding: var(--greet-padding) calc(var(--greet-padding) * 2);
 
 			font-size: 1.5em;
-			font-family: var(--font_serif);
+			font-family: var(--serif);
 
 			border-radius: 1em;
 

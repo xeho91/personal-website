@@ -18,7 +18,7 @@
 		& > .prefix {
 			padding: 0 0.5ch;
 
-			font-weight: var(--font-weight_bolder);
+			font-weight: var(--monospace_bolder);
 			text-transform: uppercase;
 
 			@mixin background;
