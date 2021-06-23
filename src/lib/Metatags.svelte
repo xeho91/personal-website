@@ -8,6 +8,8 @@
 	export let imageOG = SITE_METADATA.image.og;
 	export let imageTwitter = SITE_METADATA.image.twitter;
 
+	// Subdomain "dev."
+	const isDev = $page.host.startsWith("dev.");
 	const formattedTitle = `${SITE_METADATA.name} | ${title}`
 </script>
 
@@ -15,6 +17,11 @@
 	<title>{formattedTitle}</title>
 
 	<link rel="canonical" href={$page.host} />
+
+	{#if isDev}
+		<meta name="robots" content="noindex,nofollow" />
+	{/if}
+
 	<meta property="og:url" content="{$page.host}{$page.path}" />
 	<meta property="og:type" content={type} />
 

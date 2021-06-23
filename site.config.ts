@@ -4,12 +4,12 @@ export const SITE_METADATA = {
 	sourceCode: "https://github.com/xeho91/personal-website",
 	image: {
 		og: {
-			url: "1200x630 png",
-			alt: "",
+			url: "./images/xeho91-logo.png",
+			alt: "It contains xeho91's logotype painted in the style of quickly using a paintbrush on the wall. It's written 'xeho91' here in capital letters.",
 		},
 		twitter: {
-			url: "600x600 png",
-			alt: "",
+			url: "./images/xeho91-avatar.png",
+			alt: "It contains xeho91's logomark - which is a letter 'X' in the circle with a frame. The letter painted in the style of quickly using a paintbrush on the wall.",
 		},
 	},
 };
