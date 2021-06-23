@@ -20,7 +20,7 @@
 		<meta name="robots" content="noindex,nofollow" />
 	{/if}
 
-	<meta property="og:url" content="{$page.host}{$page.path}" />
+	<meta property="og:url" content="https://{$page.host}{$page.path}" />
 	<meta property="og:type" content={type} />
 
 	<meta property="og:site_name" content="{SITE_METADATA.name}'s {SITE_METADATA.shortDescription}" />
@@ -29,15 +29,15 @@
 	<meta name="description" value={description} />
 	<meta property="og:description" content={description} />
 
-	<meta property="og:image" content={imageOG.url} />
-	<meta property="og:image:secure_url" content="{$page.host}{imageOG.url}" />
+	<meta property="og:image" content="https://{$page.host}{imageOG.url}" />
 	<meta property="og:image:type" content="image/jpeg" />
 	<meta property="og:image:alt" content={imageOG.alt} />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 
 	<meta property="twitter:card" content="summary" />
-	<meta property="twitter:image" content={imageTwitter.url} />
-	<meta property="twitter:image:alt" content={imageTwitter.alt}>
+	<meta property="twitter:image" content="https://{$page.host}{imageTwitter.url}" />
+	<meta property="twitter:image:alt" content="https://{$page.host}{imageTwitter.alt}" >
 	<meta property="twitter:site" content="@{SITE_METADATA.name}" />
+	<meta property="twitter:creator" content="@{SITE_METADATA.author}" />
 </svelte:head>

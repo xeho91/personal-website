@@ -1,5 +1,6 @@
 export const SITE_METADATA = {
 	name: "xeho91",
+	author: "xeho91",
 	shortDescription: "personal website",
 	sourceCode: "https://github.com/xeho91/personal-website",
 	image: {

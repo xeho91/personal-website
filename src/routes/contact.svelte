@@ -60,8 +60,8 @@
 </script>
 
 <Metatags
-	title="Contact me"
-	description="This is a way to get in touch with me. Use my contact form or one of provided online platforms or social media."
+	title="Contact"
+	description="Use my contact form to get in touch with me - alternatively, one of the online tools provided on this page."
 />
 
 <h1>Get in touch with&nbsp;me</h1>
