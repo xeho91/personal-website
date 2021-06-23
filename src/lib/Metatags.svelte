@@ -16,8 +16,6 @@
 <svelte:head>
 	<title>{formattedTitle}</title>
 
-	<link rel="canonical" href={$page.host} />
-
 	{#if isDev}
 		<meta name="robots" content="noindex,nofollow" />
 	{/if}
