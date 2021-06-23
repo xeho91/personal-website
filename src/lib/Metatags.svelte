@@ -1,16 +1,16 @@
 <script lang="typescript">
 	import { page } from "$app/stores";
-	import { SITE_METADATA } from "$config";
+	import { METADATA } from "$config";
 
 	export let type = "website";
 	export let title: string;
 	export let description: string;
-	export let imageOG = SITE_METADATA.image.og;
-	export let imageTwitter = SITE_METADATA.image.twitter;
+	export let imageOG = METADATA.image.og;
+	export let imageTwitter = METADATA.image.twitter;
 
 	// Subdomain "dev."
 	const isDev = $page.host.startsWith("dev.");
-	const formattedTitle = `${SITE_METADATA.name} | ${title}`
+	const formattedTitle = `${METADATA.name} | ${title}`
 </script>
 
 <svelte:head>
@@ -23,7 +23,7 @@
 	<meta property="og:url" content="https://{$page.host}{$page.path}" />
 	<meta property="og:type" content={type} />
 
-	<meta property="og:site_name" content="{SITE_METADATA.name}'s {SITE_METADATA.shortDescription}" />
+	<meta property="og:site_name" content="{METADATA.name}'s {METADATA.shortDescription}" />
 	<meta property="og:title" content={formattedTitle} />
 
 	<meta name="description" value={description} />
@@ -38,6 +38,6 @@
 	<meta property="twitter:card" content="summary" />
 	<meta property="twitter:image" content="https://{$page.host}{imageTwitter.url}" />
 	<meta property="twitter:image:alt" content={imageTwitter.alt} >
-	<meta property="twitter:site" content="@{SITE_METADATA.name}" />
-	<meta property="twitter:creator" content="@{SITE_METADATA.author}" />
+	<meta property="twitter:site" content="@{METADATA.name}" />
+	<meta property="twitter:creator" content="@{METADATA.author}" />
 </svelte:head>

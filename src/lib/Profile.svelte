@@ -1,5 +1,8 @@
 <script lang="typescript">
 	//
+	import { BRAND_ASSETS } from "$config";
+
+	const { favicon, profile } = BRAND_ASSETS;
 </script>
 
 {#if $$slots.default}
@@ -15,16 +18,15 @@
 		avatar and profile photo"
 	>
 		<img
-			id="xeho91-avatar"
 			class="front"
 			alt="xeho91's avatar"
-			src="/images/favicon.svg"
+			src={favicon}
 		/>
 		<img
 			id="xeho91-profile_photo"
 			class="back"
 			alt="xeho91's profile"
-			src="/images/profile.jpg"
+			src={profile}
 		/>
 	</figure>
 </div>

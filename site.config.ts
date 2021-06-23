@@ -1,4 +1,4 @@
-export const SITE_METADATA = {
+export const METADATA = {
 	name: "xeho91",
 	author: "xeho91",
 	shortDescription: "personal website",
@@ -15,13 +15,14 @@ export const SITE_METADATA = {
 	},
 };
 
-export const SITE_BRAND_ASSETS = {
-	favicon: "@xeho91/avatar/build/minified/xeho91-avatar.svg",
-	logo: {
-		normal: "@xeho91/logo/build/minified/xeho91-logo.svg",
-		animated: "@xeho91/logo/build/minified/xeho91-logo.animated.svg",
+export const BRAND_ASSETS = {
+	favicon: "/images/xeho91-avatar.svg",
+	profile: "/images/xeho91-profile.webp",
+	fonts: {
+		monospace: "/fonts/monospace/JetBrainsMono-subset.woff2",
+		sansSerif: "/fonts/sans-serif/WorkSans-subset.woff2",
+		serif: "/fonts/serif/Fraunces-subset.woff2",
 	},
-	fonts: "@xeho91/fonts/dist",
 };
 
 import iconGitHub from "@iconify-icons/simple-icons/github.js";
@@ -47,7 +48,7 @@ export const CONNECT_PROFILES = [
 ];
 
 export default {
-	SITE_METADATA,
-	SITE_BRAND_ASSETS,
+	METADATA,
+	BRAND_ASSETS,
 	CONNECT_PROFILES,
 };
