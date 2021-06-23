@@ -15,15 +15,6 @@ export const SITE_METADATA = {
 	},
 };
 
-export const SITE_BRAND_ASSETS = {
-	favicon: "@xeho91/avatar/build/minified/xeho91-avatar.svg",
-	logo: {
-		normal: "@xeho91/logo/build/minified/xeho91-logo.svg",
-		animated: "@xeho91/logo/build/minified/xeho91-logo.animated.svg",
-	},
-	fonts: "@xeho91/fonts/dist",
-};
-
 import iconGitHub from "@iconify-icons/simple-icons/github.js";
 import iconTwitter from "@iconify-icons/simple-icons/twitter.js";
 import iconLinkedin from "@iconify-icons/simple-icons/linkedin.js";
