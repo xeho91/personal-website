@@ -1,13 +1,15 @@
 <script lang="typescript">
 	import { Header, Content, Footer } from "$lib/Site";
+	import { BRAND_ASSETS } from "$config";
 </script>
 
 <svelte:head>
 	<!-- Favicon -->
-	<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+	<link rel="icon" type="image/svg+xml" href={BRAND_ASSETS.favicon}>
 
 	<!-- Fonts -->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="preload" as="font" type="font/woff2" href={BRAND_ASSETS.fonts.sansSerif} crossorigin="anonymous">
+	<link rel="preload" as="font" type="font/woff2" href={BRAND_ASSETS.fonts.serif} crossorigin="anonymous">
 </svelte:head>
 
 <Header />

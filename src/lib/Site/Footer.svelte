@@ -1,5 +1,5 @@
 <script lang="typescript">
-	import { SITE_METADATA } from "$config";
+	import { METADATA } from "$config";
 
 	import Icon from "@iconify/svelte";
 	import iconGitHub from "@iconify-icons/simple-icons/github.js";
@@ -15,7 +15,7 @@
 		</span>
 
 		<span>You can preview the source code on
-			<a href={SITE_METADATA.sourceCode} title="View this website project repository on the GitHub">
+			<a href={METADATA.sourceCode} title="View this website project repository on the GitHub">
 				<Icon icon={iconGitHub} inline={true} />
 				<span class="label">GitHub</span></a>.
 		</span>
