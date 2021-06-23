@@ -37,7 +37,7 @@
 
 	<meta property="twitter:card" content="summary" />
 	<meta property="twitter:image" content="https://{$page.host}{imageTwitter.url}" />
-	<meta property="twitter:image:alt" content="https://{$page.host}{imageTwitter.alt}" >
+	<meta property="twitter:image:alt" content={imageTwitter.alt} >
 	<meta property="twitter:site" content="@{SITE_METADATA.name}" />
 	<meta property="twitter:creator" content="@{SITE_METADATA.author}" />
 </svelte:head>
