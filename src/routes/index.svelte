@@ -8,7 +8,7 @@
 
 <Metatags
 	title="Personal website"
-	description="My space on the Internet. Includes information about me, a showcase of my developing skills shared notes, and a way to contact me."
+	description="My space on the Internet. It includes information about me, a showcase of my developing skills, shared notes, and a way to contact me."
 />
 
 <article>
