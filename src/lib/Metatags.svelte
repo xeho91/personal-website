@@ -9,25 +9,28 @@
 	export let imageTwitter = METADATA.image.twitter;
 
 	// Subdomain "dev."
-	const isDev = $page.host.startsWith("dev.");
+	const isDevelopment = $page.host.startsWith("dev.");
 	const formattedTitle = `${METADATA.name} | ${title}`
 </script>
 
 <svelte:head>
+	<!-- Search engines -->
 	<title>{formattedTitle}</title>
 
-	{#if isDev}
+	{#if isDevelopment}
 		<meta name="robots" content="noindex,nofollow" />
 	{/if}
+
+	<meta name="description" content={description} />
+
+	<!-- Social media (sharing) -->
+	<meta property="og:description" content={description} />
 
 	<meta property="og:url" content="https://{$page.host}{$page.path}" />
 	<meta property="og:type" content={type} />
 
 	<meta property="og:site_name" content="{METADATA.name}'s {METADATA.shortDescription}" />
 	<meta property="og:title" content={formattedTitle} />
-
-	<meta name="description" value={description} />
-	<meta property="og:description" content={description} />
 
 	<meta property="og:image" content="https://{$page.host}{imageOG.url}" />
 	<meta property="og:image:type" content="image/jpeg" />
